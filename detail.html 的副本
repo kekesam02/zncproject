@@ -1,0 +1,272 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript" src="js/flexable.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main-c.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+		<style type="text/css">*{padding:0;margin:0;-webkit-text-size-adjust:none}.details .option{position:fixed;bottom:1rem;right:.5rem;z-index:100;height:1.1rem}.details .option .top{display:block;width:1.1rem;height:1.1rem;margin:.68rem 0 0;background:url("//img05.yiguoimg.com/d/web/180508/01311/150610/top.png") no-repeat;background-size:100%}.details .list{width:100%;border-collapse:collapse}.details .list tr{overflow:hidden;background:#fff;padding-left:.32rem;box-sizing:border-box;line-height:1.2rem;border-bottom:1px solid #ddd}.details .list tr th{width:30%;font-size:.38rem;color:gray;line-height:.8rem}.details .list tr td{width:70%;font-size:.34rem;color:#333}.details .priceImg{width:100%;display:block}.imgShow{width:100%;padding:.32rem;box-sizing:border-box;background:#fff}.imgShow img{width:100%;display:block}.details .option{bottom:2.5rem}</style>
+		<style>
+			 .img-element {
+	             border: 2px solid #FFFFFF;
+	            width: 50px;
+	            height: 50px;
+	            overflow: hidden;
+	            position: absolute;
+	            right: 70px;
+	            top: 75px;
+	            opacity: .5;
+	            top: 0;
+	            filter: alpha(opacity=50);
+	            z-index: 1010;
+	            border-radius: 50%;
+	        }
+	        
+	        .shop-cart {
+	            position: fixed;
+	            left: 4rem;
+	            bottom: 25px;
+	            z-index: 100;
+	        }
+	        
+	        
+	        @-webkit-keyframes moveAnimation{
+				0%   {transform: scale(1);-webkit-transform: scale(1);-moz-transform: scale(1);-ms-transform: scale(1);}
+				50%  {transform: scale(0.9);-webkit-transform: scale(0.9);-moz-transform: scale(0.9);-ms-transform: scale(0.9);}
+				100%  {transform: scale(0.4);-webkit-transform: scale(0.4);-moz-transform: scale(0.4);-ms-transform: scale(0.4);}
+			}
+			@-moz-keyframes moveAnimation{
+				0%   {transform: scale(1);-webkit-transform: scale(1);-moz-transform: scale(1);-ms-transform: scale(1);}
+				50%  {transform: scale(0.9);-webkit-transform: scale(0.9);-moz-transform: scale(0.9);-ms-transform: scale(0.9);}
+				100%  {transform: scale(0.4);-webkit-transform: scale(0.4);-moz-transform: scale(0.4);-ms-transform: scale(0.4);}
+			}
+			@-ms-keyframes moveAnimation{
+				0%   {transform: scale(1);-webkit-transform: scale(1);-moz-transform: scale(1);-ms-transform: scale(1);}
+				50%  {transform: scale(0.9);-webkit-transform: scale(0.9);-moz-transform: scale(0.9);-ms-transform: scale(0.9);}
+				100%  {transform: scale(0.4);-webkit-transform: scale(0.4);-moz-transform: scale(0.4);-ms-transform: scale(0.4);}
+			}
+			@keyframes moveAnimation{
+				0%   {transform: scale(1);-webkit-transform: scale(1);-moz-transform: scale(1);-ms-transform: scale(1);}
+				50%  {transform: scale(0.9);-webkit-transform: scale(0.9);-moz-transform: scale(0.9);-ms-transform: scale(0.9);}
+				100%  {transform: scale(0.4);-webkit-transform: scale(0.4);-moz-transform: scale(0.4);-ms-transform: scale(0.4);}
+			}
+	        
+	        
+	        
+	        .move {animation: moveAnimation 1s ease  infinite forwards;}
+			
+		</style>
+	</head>
+
+	<body>
+
+		<div id="app">
+			<div id="product" class="product">
+				<div class="banner">
+					<i class="iconBack" @click="backindex"></i>
+					<div id="slider" class="mui-slider" >
+					  <div class="mui-slider-group mui-slider-loop">
+					    <!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+					    <div class="mui-slider-item mui-slider-item-duplicate">
+					      <a href="#">
+					        <img src="https://img14.yiguoimg.com/d/items/2018/180914/9288731201479982_500.jpg">
+					      </a>
+					    </div>
+					    <!-- 第一张 -->
+					    <div class="mui-slider-item">
+					      <a href="#">
+					        <img src="https://img14.yiguoimg.com/d/items/2018/180914/9288731201479982_500.jpg">
+					      </a>
+					    </div>
+					    <!-- 第二张 -->
+					    <div class="mui-slider-item">
+					      <a href="#">
+					        <img src="https://img14.yiguoimg.com/d/items/2018/180914/9288731201479982_500.jpg">
+					      </a>
+					    </div>
+					    <!-- 第三张 -->
+					    <div class="mui-slider-item">
+					      <a href="#">
+					        <img src="https://img14.yiguoimg.com/d/items/2018/180914/9288731201447214_500.jpg">
+					      </a>
+					    </div>
+					    <!-- 第四张 -->
+					    <div class="mui-slider-item">
+					      <a href="#">
+					        <img src="https://img13.yiguoimg.com/d/items/2018/180914/9288731201414446_500.jpg">
+					      </a>
+					    </div>
+					    <!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+					    <div class="mui-slider-item mui-slider-item-duplicate">
+					      <a href="#">
+					        <img src="https://img14.yiguoimg.com/d/items/2018/180914/9288731201479982_500.jpg">
+					      </a>
+					    </div>
+					  </div>
+					  <div class="mui-slider-indicator">
+					    <div class="mui-indicator mui-active"></div>
+					    <div class="mui-indicator"></div>
+					    <div class="mui-indicator"></div>
+					    <div class="mui-indicator"></div>
+					  </div>
+					</div>
+				</div>
+				<div class="productInfor">
+					<p class="title">兴城多宝鱼3333350g</p>
+					
+					
+					
+					<div class="img-element" id="imgElement">
+				        <img src="img/1.png" width="50" height="50">
+				    </div>
+				    
+				    
+				    
+				    
+				    
+					<div class="price">
+						<p class="priceIn"><span class="priceRed"><i>¥</i>59</span>
+							<!---->
+						</p>
+						<p class="area">产地：<span class="name">辽宁</span></p>
+					</div>
+					<div class="sevenDay"><i class="dian"></i>不支持7天无理由退货
+					</div>
+				</div>
+				<!---->
+				<div class="norms">
+					<div class="title line-bottom">
+						规格
+						<span class="choose active">350g/袋</span></div>
+					<div class="title line-bottom">
+						数量
+						<div class="num"><span class="cut line-all active"><i></i></span> <span class="input line-bottom">1</span> <span class="add line-all"><i></i></span></div> <span class="hint" style="display: none;">限购20件</span></div>
+				</div>
+				<div class="address clear">
+					<p class="title">送至</p>
+					<div class="addressDetail">
+						<p class="add"><span></span>上海 宝山区 宝山区</p>
+						<p class="infor"><span>有货</span>
+							<!---->
+							<!---->24:00 前完成订单，预计明日(10月17日)送达</p>
+					</div>
+				</div>
+				<div class="evaluate">
+					<p class="title line-bottom" @click="tocomment"><span class="count">评价（383）</span> <span class="number">查看全部 <i class="back"></i></span></p>
+					<div class="content line-bottom">
+						<div class="txt clear">
+							<div class="left"><img alt="" class="imgHeaer" src="https://img02.yiguo.com/e/web/150703/00781/140145/no-pic.jpg">
+								<p class="userName">gr***61</p>
+								<div class="stars-bg"><span class="star" style="width: 100%;"></span></div> <span class="name">2018-10-16</span></div>
+						</div>
+						<p class="text">超时未评价，系统默认好评</p>
+					</div>
+				</div>
+				<!---->
+				<div class="recommend" style="display: none;">
+					<h3>大家都在买</h3>
+					<div class="listAll">
+						<ul class="allIn"></ul>
+					</div>
+				</div>
+				<div id="details" class="details"><table border="0" cellspacing="0" cellpadding="0" class="list"><tr class="line-bottom"><th>单果规格</th> <td>无</td></tr><tr class="line-bottom"><th>商品状态</th> <td>冷藏</td></tr></table> <div class="imgShow"><p><img src="https://img09.yiguoimg.com/d/images/2018/180928/513691890213463356_880x245.jpg"></p><p><img src="https://img14.yiguoimg.com/d/images/2018/180914/513691889467204910_880x812.jpg" style=""></p><p><img src="https://img09.yiguoimg.com/d/images/2018/180914/513691889467237678_880x810.jpg" style=""></p><p><img src="https://img09.yiguoimg.com/d/images/2018/180914/513691889467073838_880x813.jpg" style=""></p><p><img src="https://img13.yiguoimg.com/d/images/2018/180914/513691889467106606_880x812.jpg" style=""></p><p><img src="https://img13.yiguoimg.com/d/images/2018/180914/513691889467139374_880x810.jpg" style=""></p><p><img src="https://img09.yiguoimg.com/d/images/2018/180914/513691889467172142_880x813.jpg" style=""></p><p><br></p></div> <img src="//img05.yiguoimg.com/d/web/171027/00932/120410/price.jpg" alt="" class="priceImg"> <div class="option"><a href="javascript:;" id="gotop" class="top" style="display: none;"></a></div></div>
+				<span class="shop-cart" id="shopCart"></span>
+				<div class="footer line-top">
+					<a class="btn1" @click="toindex"><i class="home" @click="toindex"></i>首页</a>
+					<a class="btn1"  @click="toshopcar"><i class="cart" @click="toshopcar"></i> 购物车<i class="num">2</i></a>
+					<a class="btn1pad"></a>
+					<!---->
+					<a href="javascript:;"  class="btn2 btnRed" id="addcar">加入购物车</a>
+					<!---->
+					<!---->
+				</div>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="js/vue.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script src="js/parabola.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//mui初始化
+			mui.init()
+			//手机app的加载初始化
+			mui.plusReady(function() {
+				var currentview = plus.webview.currentWebview();
+				console.log("你要查询的值是：=====>"+currentview.detailId);
+				
+				var gallery = mui('.mui-slider');
+				gallery.slider({
+					interval: 3000 //自动轮播周期，若为0则不自动播放，默认为0；
+				});
+
+				
+				// 起始位置元素
+			    var imgElement = document.querySelector('#imgElement'),
+			        // 终点位置元素
+			        shopCartElement = document.querySelector('#shopCart'),
+			        // 购物车数量
+			        proNum = 0;
+			
+			    // 初始化抛物线动画
+			    var myParabola = funParabola(imgElement, shopCartElement, {
+			        speed: 200,// 每帧移动的像素大小
+			        curvature: 0.04,// 实际指焦点到准线的距离
+			        progress:function(){
+			        },
+			        complete: function () {
+			            imgElement.style.visibility = "hidden";
+			        }
+			    });
+			    // 绑定加入购物车事件
+			    document.getElementById("addcar").addEventListener("click",function(){
+			    	 imgElement.style.right = 70+"px";
+			    	 imgElement.style.top = 75+"px";
+			    	 imgElement.style.visibility = "visible";
+			    	 imgElement.classList.add('move');
+			    	 myParabola.position().move();
+			    });
+			    
+			});
+		   
+			
+			var app = new Vue({
+				el: "#app",
+				data: {
+					
+				},
+				methods: {
+					toindex(){
+						plus.webview.currentWebview().hide("slide-out-left",100);
+					},
+					
+					backindex(e) {
+						plus.webview.currentWebview().hide("slide-out-left",100);
+					},
+					
+					tocomment(){
+						
+						var comemntView = plus.webview.create("commentlist.html","commentlist.html",{},{
+							detailId:"123"
+						});
+						//打开窗口
+						plus.webview.show("commentlist.html","slide-in-right",100);
+					},
+					
+					toshopcar(){
+						var comemntView = plus.webview.create("shopcar.html","shopcar.html",{},{
+							detailId:"123"
+						});
+						//打开窗口
+						plus.webview.show("shopcar.html","slide-in-right",100);
+					}
+				}
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script src="js/flexable.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="css/main-c.css" />
+	</head>
+
+	<body>
+		<div id="app">
+
+			<div id="categoryList" class="search">
+				<div class="searchTop line-bottom">
+					<form action="" class="searchInp"><i class="icon"></i> 
+						<input type="text" style="display: none;"> 
+							<input type="search" name="search" v-model="keyword" id="search" placeholder="请输入商品名称" maxlength="30" class="name"> 
+								<i class="close" style="display: none;"></i></form> <span class="txt fz12" @click="tosearch">搜索</span></div>
+				<div class="boxBg" style="display: none;"></div>
+				<div class="searchContent clear">
+					<div class="nav">
+						<ul class="navList">
+							<li :class="{'active':cindex==index}" v-for="(item,index) in categorys" :key="index" ><a  @click="changecate" :cindex="index" style="display: block;" v-text="item"></a></li>
+						</ul>
+					</div>
+					<ul class="listContent">
+						<li>
+							<div class="commodityBox">
+								<a href="javascript:;" @click="tosearch" cid="1" class="commodityList"><img src="https://img09.yiguoimg.com/e/items/2017/170612/9288708943225548_220.jpg"> 全部
+								</a>
+								<a href="javascript:;" @click="tosearch" cid="2"  class="commodityList"><img src="https://img12.yiguoimg.com/e/items/2017/170612/9288708943127244_220.jpg"> 奇异果
+								</a>
+								<a href="javascript:;" @click="tosearch"  cid="3" class="commodityList"><img src="https://img12.yiguoimg.com/e/items/2017/170615/9288709129282255_220.jpg"> 李
+								</a>
+								<a href="javascript:;" @click="tosearch"  cid="4" class="commodityList"><img src="https://img11.yiguoimg.com/e/items/2017/170615/9288709129020111_220.jpg"> 莓
+								</a>
+								<a href="javascript:;" @click="tosearch"  cid="5" class="commodityList"><img src="https://img12.yiguoimg.com/e/items/2017/170612/9288708943192780_220.jpg"> 牛油果
+								</a>
+								<a href="javascript:;" @click="tosearch"  cid="6"  class="commodityList"><img src="https://img10.yiguoimg.com/e/items/2017/170615/9288709129511631_220.jpg"> 提子
+								</a>
+								<a href="javascript:;" @click="tosearch"  cid="6" class="commodityList"><img src="https://img14.yiguoimg.com/e/items/2017/170615/9288709129478863_220.jpg"> 苹果
+								</a>
+								<a href="javascript:;" @click="tosearch"  cid="6" class="commodityList"><img src="https://img12.yiguoimg.com/e/items/2017/170615/9288709129446095_220.jpg"> 梨
+								</a>
+								<a href="javascript:;" @click="tosearch"  cid="6" class="commodityList"><img src="https://img11.yiguoimg.com/e/items/2017/170615/9288709129413327_220.jpg"> 柑桔橙柚
+								</a>
+								<a href="javascript:;" @click="tosearch"  cid="6" class="commodityList"><img src="https://img12.yiguoimg.com/e/items/2017/170615/9288709128921807_220.jpg"> 山竹
+								</a>
+								<a href="javascript:;" @click="tosearch"  cid="6" class="commodityList"><img src="https://img09.yiguoimg.com/e/items/2017/170615/9288709128889039_220.jpg"> 香蕉
+								</a>
+								<a href="javascript:;" @click="tosearch"  cid="6" class="commodityList"><img src="https://img12.yiguoimg.com/e/items/2017/170615/9288709128856271_220.jpg"> 火龙果
+								</a>
+								<a href="javascript:;" @click="tosearch"  cid="6" class="commodityList"><img src="https://img13.yiguoimg.com/e/items/2017/170615/9288709128823503_220.jpg"> 椰子
+								</a>
+								<a href="javascript:;" @click="tosearch"  cid="6" class="commodityList"><img src="https://img13.yiguoimg.com/e/items/2017/170615/9288709128790735_220.jpg"> 芒果
+								</a>
+								<a href="javascript:;" @click="tosearch"  cid="6" class="commodityList"><img src="https://img14.yiguoimg.com/e/items/2017/170615/9288709128692431_220.jpg"> 凤梨
+								</a>
+								<a href="javascript:;" @click="tosearch"  cid="6" class="commodityList"><img src="https://img11.yiguoimg.com/e/items/2017/170615/9288709128659663_220.jpg"> 榴莲
+								</a>
+								<a href="javascript:;" @click="tosearch"  cid="6" class="commodityList"><img src="https://img13.yiguoimg.com/e/items/2017/170615/9288709128626895_220.jpg"> 热带水果
+								</a>
+								<a href="javascript:;" @click="tosearch"  cid="6" class="commodityList"><img src="https://img14.yiguoimg.com/e/items/2017/170615/9288709128594127_220.jpg"> 时令水果
+								</a>
+								<a href="javascript:;" @click="tosearch"  cid="6" class="commodityList"><img src="https://img09.yiguoimg.com/e/items/2017/170615/9288709128561359_220.jpg"> 原箱水果
+								</a>
+							</div>
+						</li>
+					</ul>
+				</div> /div></div>
+
+		</div>
+
+		<script type="text/javascript" src="js/vue.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+			mui.plusReady(function() {
+				
+				document.getElementById("search").addEventListener("keypress",function(event) {
+				    if(event.keyCode == 13) {
+				        document.activeElement.blur();//收起虚拟键盘
+				        app.tosearch(event);
+				        event.preventDefault(); // 阻止默认事件---阻止页面刷新
+				    }
+				});
+			});
+			
+			
+			var app = new Vue({
+					el: "#app",
+					data: {
+						cindex: 0,
+						keyword:"",
+						categorys: ["进口水果", "国产水果", "精选肉类", "海鲜产品", "即烹美食", "乳品糕点", "新鲜蔬菜", "方便速食", "粮油杂货", "饮料酒水", "礼品礼券"]
+					},
+					methods: {
+						changecate(e) {
+							this.cindex = e.target.getAttribute("cindex");
+						},
+						tosearch(e) {
+							var keyword = this.keyword;
+							var cid = e.target.getAttribute("cid");
+							var searchView = plus.webview.open("search.html", "search.html", {}, "slide-in-right", 100,function(){
+								mui.fire(searchView,"fire",{
+									keyword:keyword,
+									cid:cid
+								});
+							});
+						}
+					}
+				});
+
+		</script>
+	</body>
+
+</html>

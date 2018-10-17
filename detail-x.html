@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript" src="js/flexable.js"></script>
+		<style type="text/css">*{padding:0;margin:0;-webkit-text-size-adjust:none}.details .option{position:fixed;bottom:1rem;right:.5rem;z-index:100;height:1.1rem}.details .option .top{display:block;width:1.1rem;height:1.1rem;margin:.68rem 0 0;background:url("//img05.yiguoimg.com/d/web/180508/01311/150610/top.png") no-repeat;background-size:100%}.details .list{width:100%;border-collapse:collapse}.details .list tr{overflow:hidden;background:#fff;padding-left:.32rem;box-sizing:border-box;line-height:1.2rem;border-bottom:1px solid #ddd}.details .list tr th{width:30%;font-size:.38rem;color:gray;line-height:.8rem}.details .list tr td{width:70%;font-size:.34rem;color:#333}.details .priceImg{width:100%;display:block}.imgShow{width:100%;padding:.32rem;box-sizing:border-box;background:#fff}.imgShow img{width:100%;display:block}.details .option{bottom:2.5rem}</style>
+	
+	</head>
+
+	<body>
+
+		<div id="app">
+			<div id="details" class="details"><table border="0" cellspacing="0" cellpadding="0" class="list"><tr class="line-bottom"><th>单果规格</th> <td>无</td></tr><tr class="line-bottom"><th>商品状态</th> <td>冷藏</td></tr></table> <div class="imgShow"><p><img src="https://img09.yiguoimg.com/d/images/2018/180928/513691890213463356_880x245.jpg"></p><p><img src="https://img14.yiguoimg.com/d/images/2018/180914/513691889467204910_880x812.jpg" style=""></p><p><img src="https://img09.yiguoimg.com/d/images/2018/180914/513691889467237678_880x810.jpg" style=""></p><p><img src="https://img09.yiguoimg.com/d/images/2018/180914/513691889467073838_880x813.jpg" style=""></p><p><img src="https://img13.yiguoimg.com/d/images/2018/180914/513691889467106606_880x812.jpg" style=""></p><p><img src="https://img13.yiguoimg.com/d/images/2018/180914/513691889467139374_880x810.jpg" style=""></p><p><img src="https://img09.yiguoimg.com/d/images/2018/180914/513691889467172142_880x813.jpg" style=""></p><p><br></p></div> <img src="//img05.yiguoimg.com/d/web/171027/00932/120410/price.jpg" alt="" class="priceImg"> <div class="option"><a href="javascript:;" id="gotop" class="top" style="display: none;"></a></div></div>
+		</div>
+
+		<script type="text/javascript" src="js/vue.js"></script>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			//mui初始化
+			mui.init()
+			//手机app的加载初始化
+			mui.plusReady(function() {
+				
+				var currentview = plus.webview.currentWebview();
+				alert("你要查询的值是：=====>"+currentview.detailId);
+				
+				var app = new Vue({
+					el: "#app",
+					data: {
+						
+					},
+					methods: {
+						
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

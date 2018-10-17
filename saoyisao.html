@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			*{
+				-webkit-user-select: none;
+			}
+			html,body{
+				margin: 0px;
+				padding: 0px;
+				height: 100%;
+				background:#00B388;
+			}
+			#bcid {
+				background:#00B388;
+				height:100%;
+				width:100%;
+			}
+		</style>
+	</head>
+
+	<body>
+		
+		<div id="bcid"></div>
+			
+			
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			
+			mui.plusReady(function(){
+				
+				var scan = null;
+				function onmarked( type, result ) {
+					var text = '未知: ';
+					switch(type){
+						case plus.barcode.QR:
+						text = 'QR: ';
+						break;
+						case plus.barcode.EAN13:
+						text = 'EAN13: ';
+						break;
+						case plus.barcode.EAN8:
+						text = 'EAN8: ';
+						break;
+					}
+					alert( text+result );
+					scan.setFlash(false);
+				}
+				
+				function startRecognize() {
+					scan = new plus.barcode.Barcode('bcid',[],{
+						top:'0px',
+						frameColor:"#00B388",
+						background:"#00B388",
+						scanbarColor:"#00B388",
+						left:'0px',
+						width: '100%',
+						height: '200px',
+						position: 'absolute'
+					});
+					scan.onmarked = onmarked; 
+				}
+				
+				function startScan() {
+					scan.start();
+				}
+				
+				function cancelScan() {
+					scan.setFlash(false);
+					scan.cancel();
+				}
+				
+				function setFlash() {
+					scan.setFlash(true);
+				}
+				
+				function pickselect(){
+					plus.gallery.pick(function(path){
+						plus.barcode.scan(path,function(type,code){
+							alert(type+"=="+code);
+						});
+					})
+				};
+				
+				startRecognize();
+				startScan();
+				
+			});
+			
+			
+		</script>
+	</body>
+
+</html>

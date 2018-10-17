@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<style type="text/css">
+        .wrap
+        {
+            width: 100%;
+        }
+        .header
+        {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            height: 40px;
+            line-height: 40px;
+            color: #3d4245;
+            font-size: 22px;
+            background: #f9f9f9;
+            border-bottom: 1px solid #dfdfdf;
+            text-align: center;
+        }
+        .accounts
+        {
+            padding-top: 0px;
+        }
+        .account-item
+        {
+            display: -webkit-box;
+            display: box;
+            border-top: 1px solid #dedede;
+            border-bottom: 1px solid #dedede;
+            background: #f8f8f8;
+            overflow: hidden;
+            margin-top: 11px;
+            -webkit-box-align: center;
+        }
+        .account-item:first-child
+        {
+            border-top: 0;
+        }
+        .account-item a
+        {
+            display: inline-block;
+        }
+        .account-item .icon
+        {
+            margin: 10px;
+            display: block;
+            overflow: hidden;
+        }
+        .account-item .pic
+        {
+            width: 100%;
+            height: 100%;
+        }
+        .account-item .info
+        {
+            padding: 2px 5px 5px 5px;
+            position: relative;
+            -webkit-box-flex: 1;
+            box-flex: 1;
+        }
+        .account-item .info:after
+        {
+            position: absolute;
+            left: -20px;
+            top: 30px;
+            content: "";
+            display: block;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            border-right: 10px solid #f8f8f8;
+        }
+        .account-item .info h3, .account-item .info h3 a
+        {
+            color: #3e4446;
+            font-size: 15px;
+            text-decoration: none;
+        }
+        .account-item .info p, .account-item .info p a
+        {
+            color: #999;
+            font-size: 14px;
+            text-decoration: none;
+        }
+        .account-item .info .func
+        {
+            width: 150px;
+            height: 30px;
+            left: 12px;
+            top: 65px;
+        }
+        .account-item .info .desc
+        {
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+        .followbtn
+        {
+            height: 28px;
+            width: 79px;
+            padding: 0;
+            margin-right: 10px;
+            border: #ff8000 1px solid;
+            -webkit-border-radius: 4px;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #01c1ad;
+            background: #ff8000;
+            color: #f5fcfb;
+            text-align: center;
+            min-width: 52px;
+        }
+        .followed
+        {
+            background: #fff;
+            border: 1px solid #dedede;
+            color: #dedede;
+        }
+        body
+        {
+            background: #ededed;
+        }
+        .listyle
+        {
+            list-style-type: disc;
+            margin-left: 20px;
+            padding: 4px 2px 4px 0px;
+        }
+    </style>	</head>
+	<body>
+		<form id="form1">
+    <div class="header" style="display: none;">
+        配送说明</div>
+    <div class="content">
+        <div class="accounts">
+            <div class="account-item" onclick="">
+                <div class="info" style="margin: 2px 10px;">
+                    <br>
+                    <strong>配送范围：</strong>
+                    <ul class="listyle">
+                        <li>上海、北京、昆山、苏州、杭州、无锡、宁波、天津、石家庄、廊坊，自有物流直配</li>
+                        <li>全国59 个城市冷链配送</li>
+                    </ul>
+                    <strong>配送运费：</strong>
+                    <ul class="listyle">
+                        <li>自配城市购物满100元，免费送货【上海地区崇明岛除外，北京地区六环外除外】；不满100元，每单收取10元运费。</li>
+                        <li>其他地区运费按照第三方物流的收费标准执行，选好商品及收货地址后会自动计算。</li>
+                        <li>如购买鲜活商品满500元，免费送货；500元以下，每单收取50元运费。</li>
+                        <li>定时服务费。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    </form>
+    
+    <script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			
+			//mui初始化
+			mui.init()
+			//手机app的加载初始化
+			mui.plusReady(function(){
+				
+			});
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript" src="js/flexable.js" ></script>
+		<link rel="stylesheet" type="text/css" href="css/main-c.css"/>
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+	</head>
+	<body>
+
+		<div id="app">
+			<div id="cashierDesk" class="cashier-desk"><!----> <div class="ub line-top"><span class="title">账户余额支付</span> <span class="txt">无账户余额可用<i class="price"></i></span> <i class="icon"></i> <!----></div> <div class="payment"><p class="title line-bottom">在线支付</p> <div class="payment-in"><div class="list list1 line-bottom"><img src="https://img02.yiguo.com/e/web/130101/app/payment/pay02.png" class="bank"> <p class="line-h">
+                    支付宝网页支付
+                    <!----> <!----></p> <!----> <i class="icon1"></i></div><div class="list list1 line-bottom"><img src="https://img02.yiguo.com/e/web/130101/app/payment/pay05.png" class="bank"> <p class="line-h">
+                    建设银行网页支付
+                    <!----> <!----></p> <!----> <i class="icon1 active"></i></div><div class="list list1 line-bottom"><img src="https://img02.yiguo.com/e/web/130101/app/payment/pay09.png" class="bank"> <p class="line-h">
+                    工商银行网页支付
+                    <!----> <!----></p> <!----> <i class="icon1"></i></div><div class="list list1 line-bottom"><img src="https://img02.yiguo.com/e/web/130101/app/payment/pay06.png" class="bank"> <p class="line-h">
+                    农业银行网页支付
+                    <!----> <!----></p> <!----> <i class="icon1"></i></div><div class="list list1 line-bottom"><img src="https://img02.yiguo.com/e/web/130101/app/payment/pay07.png" class="bank"> <p class="line-h">
+                    浦发银行网页支付
+                    <!----> <!----></p> <!----> <i class="icon1"></i></div></div></div> <div class="payment"><p class="title line-bottom">货到付款</p> <div class="payment-in"><div class="list list1 line-bottom"><img src="https://img02.yiguo.com/e/web/130101/app/payment/pay10.png" class="bank bank4"> <p class="line-h"> 现金支付<i class="txt-col"></i></p> <!----> <i class="icon1"></i></div><div class="list list1 line-bottom"><img src="https://img02.yiguo.com/e/web/130101/app/payment/pay11.png" class="bank bank4"> <p class="line-h"> POS机支付<i class="txt-col"></i></p> <!----> <i class="icon1"></i></div></div></div> <div class="balance line-top"><div class="price"><p class="priceHeight">应付金额：<span class="red">￥150.00</span></p> <!----></div> <button class="btn">确认支付</button></div> <div class="window" style="display: none;"><div class="paypassword"><a href="javascript:;" class="close">×</a> <p class="tt">为了保证预存款资金安全<br>请输入支付密码</p> <div class="amount"><p class="gray">预存款支付</p> <p class="red f16"></p></div> <div class="pwinputbox"><input type="tel" maxlength="6" class="input"> <ul class="pwbox"><li><i></i></li> <li><i></i></li> <li><i></i></li> <li><i></i></li> <li><i></i></li> <li><i></i></li></ul></div> <!----> <!----></div></div> <div class="oneButton" style="display: none;"><div class="popup-hint"><i class="closeBtn"></i> <p class="hint-text"></p> <div class="btnpop1 clear"><a href="javascript:;" class="btnone"></a></div></div></div> <div class="maskHint" style="display: none;"><div class="popup-hint"><p class="hint-text">账户余额开具的金额将不可开具发票，是否继续？</p> <div class="btnpop1 clear"><a href="javascript:;" class="btnone">取消</a> <a href="javascript:;" class="btntwo">继续支付</a></div></div></div> <div class="masktips" style="display: none;"><div class="text"><p></p> <a href="javascript:;"></a></div></div> <div class="citymask" style="display: none;"><div class="gpstips"><a href="javascript:;"><em class=" icon icon_gps"></em> 亲，请先选择您的收货城市
+            <em class=" icon icon_arrowright"></em></a></div></div></div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/vue.js"></script>
+		
+		<script type="text/javascript">
+			
+			(function($,win){
+				
+				mui.init();
+				mui.plusReady(function(){
+					
+				});
+				
+				
+				var app = new Vue({
+						el:"#app",
+						data: {
+							
+						},
+						methods:{
+							tologin(){
+								plus.webview.open('login.html',"login.html",{},"slide-in-right",100);
+							},
+							
+							toindex(){
+								var indexWindow = plus.webview.getLaunchWebview();
+								var value = "home.html";
+								indexWindow.evalJS("window.activeClass('" +value+ "')");
+								plus.webview.getWebviewById("home.html").show("fade-in",200);
+							}
+						}
+					});
+				
+			})(mui,window)
+			
+			
+		</script>
+	
+	</body>
+</html>

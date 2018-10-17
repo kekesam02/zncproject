@@ -1,0 +1,294 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+		<link rel="stylesheet" type="text/css" href="css/animate.css"/>
+		<style type="text/css">
+			::-webkit-input-placeholder { /* WebKit browsers */ 
+				color: #FFFFFF; 
+			} 
+			:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ 
+				color:#FFFFFF;; 
+			} 
+			::-moz-placeholder { /* Mozilla Firefox 19+ */ 
+				color: #FFFFFF;; 
+			} 
+			:-ms-input-placeholder { /* Internet Explorer 10+ */ 
+				color: #FFFFFF;; 
+			}
+
+		</style>
+	</head>
+	<body>
+		<div id="app">
+		<div id="refreshContainer">
+			<div class="searchbox" >
+				<div class="searchitems">
+					<span class="fl addr" @click="toAddress"><i class="iconfont icon-dizhi fz13 fl pr ftp3"></i><span class="aname">乌鲁木齐</span></span>
+					<span class="fl searinpt pr">
+						<form action="">
+							<input type="search" id="search" v-model="keyword" placeholder="请输入商品名称" value="" class="pr  tp1 fz12"/><i class="iconfont icon-search "></i>
+						</form>
+					</span>
+					<span class="fr saoyisao" @click="tosaoyisao"><i class="iconfont icon-saoyisao fz20"></i></span>
+				</div>
+			</div>
+			<!--分类导航-->
+			<div class="catecontainer pr"  id="searchboxc">
+				<div class="categorybox">
+					<ul>
+						<li :class="{'active':cindex==index}" v-for="(item,index) in list" :key="index"><span v-text="item"  @tap="changecate" :cindex="index"></span></li>
+						<li></li>
+					</ul>
+				</div>
+				<div class="categ-more">
+					<i class="iconfont icon-down fz24"></i>
+				</div>	
+			</div>
+			
+			<!--优选检查赔付-->	
+			<section class="recommend-title clearfix">
+				<div class="recommend-text">
+					<img src="img/img_20170627185311186.png"> 
+					<span>优鲜严选</span>
+				</div>
+				<div class="recommend-text">
+					<img src="img/img_20170627184654084.png"> 
+					<span>安心检测</span>
+				</div>
+				<div class="recommend-text">
+					<img src="img/img_20170718194948016.png"> 
+					<span>赔付保障</span>
+				</div>
+			</section>
+			<div class="category-border"><div></div></div>
+			
+			
+			<!--广告-->
+			<div class="card-wrap clearfix">
+				<img src="img/img_20180503212111961.png" class="image-view" alt="">
+				<img src="img/img_20180817011111232.png" class="image-view" alt="">
+			</div>
+			
+			<!--产品列表-->
+			<div class="product-container clearfix">
+				<div class="product-list-divider-wrap" >
+					<image  src="img/BCDBF050B7DD3BE6A0829DC2E3683063.PNG?mryxw=1242&mryxh=240" class="image-view divider-banner"></image>
+				</div>
+				<!--加载更多-->
+				<div class="prolist pt">
+					<div class="blockwrap"><!----> 
+						<ul>
+							<li v-for="(item,index) in itemList" :key="index">
+								<div class="proitem">
+									<div class="pic">
+										<a href="javascript:;" :cid="index" @click="todetail"><img src="https://img13.yiguoimg.com/d/items/2018/180525/9288723534947513_300.jpg"></a>
+									</div>
+									<div class="info pr">
+										<p class="name"><a href="javascript:;" :cid="index" @click="todetail"><span v-text="item.title"></span></a></p>
+										<p class="sub">用券更优惠 券后价189元</p> 
+										<div class="saletip"><span>巨无霸金果</span></div> 
+										<div class="price"><strong>¥258</strong><span class="fz12">/&nbsp;3.3kg</span></div>
+										<span class="shopcar"  v-show="item.flag"><i @click='addnumm' :cindex="index" class="iconfont icon-add fz28 dcof"></i></span>
+										<div class="addmuisb" v-show="!item.flag">
+											<span class="minus" ><i :cindex="index"  @click='miusnum' class="iconfont fz12 icon-icon_cut"></i></span>
+											<span class="num" v-text="item.num"></span>
+											<span class="plus"><i :cindex="index"   @click='addnum' class="iconfont  fz12 icon-jia"></i></span>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			(function($,win){
+				
+				document.addEventListener("scroll",function(e){
+					var stop = document.documentElement.scrollTop || document.body.scrollTop;
+					if(stop>=40){
+						document.getElementById("searchboxc").className ="catecontainer pf animated slideInDown";
+					}else{
+						document.getElementById("searchboxc").className ="catecontainer pr";
+					}
+				});
+				
+				mui.init({
+					 pullRefresh : {
+					    container:"#refreshContainer",//下拉刷新容器标识，querySelector能定位的css选择器均可，比如：id、.class等
+					    down : {
+					      style:'circle',//必选，下拉刷新样式，目前支持原生5+ ‘circle’ 样式
+					      color:'#2BD009', //可选，默认“#2BD009” 下拉刷新控件颜色
+					      height:'50px',//可选,默认50px.下拉刷新控件的高度,
+					      range:'100px', //可选 默认100px,控件可下拉拖拽的范围
+					      offset:'0px', //可选 默认0px,下拉刷新控件的起始位置
+					      auto: false,//可选,默认false.首次加载自动上拉刷新一次
+					      contentdown : "下拉可以刷新",//可选，在下拉可刷新状态时，下拉刷新控件上显示的标题内容
+					      contentover : "释放立即刷新",//可选，在释放可刷新状态时，下拉刷新控件上显示的标题内容
+					      contentrefresh : "正在刷新...",//可选，正在刷新状态时，下拉刷新控件上显示的标题内容
+					      callback :callbackPullfresh //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+					    },
+					    up : {
+					        height:1000,//可选,默认50.触发下拉刷新拖动距离,
+					        auto: false,//可选,默认false.首次加载自动上拉刷新一次
+					        color:'#2BD009', //可选，默认“#2BD009” 下拉刷新控件颜色
+					    	contentrefresh : "正在加载...",//可选，正在加载状态时，上拉加载控件上显示的标题内容
+      						contentnomore:'没有更多数据了',//可选，请求完毕若没有更多数据时显示的提醒内容；
+					    	callback:callbackPushfresh
+					    }
+					 }
+				});
+				
+				function callbackPullfresh(){
+					console.log("下拉刷新执行的数据请求......");
+					 //注意，加载完新数据后，必须执行如下代码，注意：若为ajax请求，则需将如下代码放置在处理完ajax响应数据之后
+				     //没有更多内容了，endPulldown 传入true， 不再执行下拉刷新
+				    mui('#refreshContainer').pullRefresh().endPulldownToRefresh();
+				};
+				
+				
+				function callbackPushfresh(){
+					console.log("上拉加载的时候执行的数据请求......");
+				     //重置上拉加载
+				     $('#refreshContainer').pullRefresh().refresh(true);
+				     //注意：
+				     //1、加载完新数据后，必须执行如下代码，true表示没有更多数据了：
+				     //2、若为ajax请求，则需将如下代码放置在处理完ajax响应数据之后
+				     //结束上拉加载
+				     setTimeout(function(){
+						$('#refreshContainer').pullRefresh().endPullupToRefresh(false);				     	
+				     },2000);
+				     //启用上拉刷新
+				     //$('#refreshContainer').pullRefresh().enablePullupToRefresh();
+				     //禁用上拉刷新
+				     //$('#refreshContainer').pullRefresh().disablePullupToRefresh();
+				};
+				
+				
+				mui.plusReady(function(){
+					document.getElementById("search").addEventListener("keypress",function(event) {
+					    if(event.keyCode == 13) {
+					        document.activeElement.blur();//收起虚拟键盘
+					        app.tosearch();
+					        event.preventDefault(); // 阻止默认事件---阻止页面刷新
+					    }
+					});
+				});
+				
+				var app = new Vue({
+						el:"#app",
+						data: {
+							active: 0,
+							height:0,
+							cnum:0,
+							keyword:"",
+							userName:"keke",
+							title:"hello",
+							cindex:0,
+							testarr:[1,2,3,4,5,6,7,8,9,10],
+							list:["热卖","水果","零食","酒饮","粮油","熟食","其他"],
+							itemList: [
+								{"title":"items1",flag:true,price:1.2,num:0,"img":"https://img14.yiguoimg.com/d/items/2018/181010/9288732375033162_1125x652.jpg?w=1125&h=652"},
+								{"title":"items2",flag:true,price:1.3,num:0,"img":"https://img09.yiguoimg.com/d/items/2018/180929/9288731981686077_1125x652.jpg?w=1125&h=652"},
+								{"title":"items3",flag:true,price:1.4,num:0,"img":"https://img13.yiguoimg.com/d/items/2018/180929/9288731988927805_1125x652.jpg?w=1125&h=652"},
+								{"title":"items1",flag:true,price:1.2,num:0,"img":"https://img14.yiguoimg.com/d/items/2018/181010/9288732375033162_1125x652.jpg?w=1125&h=652"},
+								{"title":"items2",flag:true,price:1.3,num:0,"img":"https://img09.yiguoimg.com/d/items/2018/180929/9288731981686077_1125x652.jpg?w=1125&h=652"},
+								{"title":"items3",flag:true,price:1.4,num:0,"img":"https://img13.yiguoimg.com/d/items/2018/180929/9288731988927805_1125x652.jpg?w=1125&h=652"},
+								{"title":"items1",flag:true,price:1.2,num:0,"img":"https://img14.yiguoimg.com/d/items/2018/181010/9288732375033162_1125x652.jpg?w=1125&h=652"},
+								{"title":"items2",flag:true,price:1.3,num:0,"img":"https://img09.yiguoimg.com/d/items/2018/180929/9288731981686077_1125x652.jpg?w=1125&h=652"},
+								{"title":"items3",flag:true,price:1.4,num:0,"img":"https://img13.yiguoimg.com/d/items/2018/180929/9288731988927805_1125x652.jpg?w=1125&h=652"},
+								{"title":"items1",flag:true,price:1.2,num:0,"img":"https://img14.yiguoimg.com/d/items/2018/181010/9288732375033162_1125x652.jpg?w=1125&h=652"},
+								{"title":"items2",flag:true,price:1.3,num:0,"img":"https://img09.yiguoimg.com/d/items/2018/180929/9288731981686077_1125x652.jpg?w=1125&h=652"},
+								{"title":"items3",flag:true,price:1.4,num:0,"img":"https://img13.yiguoimg.com/d/items/2018/180929/9288731988927805_1125x652.jpg?w=1125&h=652"}
+							]
+						},
+						methods:{
+							
+							tosearch() {
+								var keyword = this.keyword;
+								var searchView = plus.webview.open("search.html", "search.html", {}, "slide-in-right", 100,function(){
+									mui.fire(searchView,"fire",{
+										keyword:keyword,
+										cid:""
+									});
+								});
+							},
+							
+							addnumm(e){
+								var cindex = e.target.getAttribute("cindex");
+								this.itemList[cindex].flag = false;
+								this.itemList[cindex].num = 0;
+								this.addnum(e);
+							},
+							
+							addnum(e){
+								var cindex = e.target.getAttribute("cindex");
+								this.cnum = ++this.cnum; 
+								var parentWindow = plus.webview.getLaunchWebview();
+								//给父窗口传递数据
+								var value = this.cnum;
+								this.itemList[cindex].num = ++this.itemList[cindex].num ;
+								//开始传递
+								parentWindow.evalJS("window.addnum('" +value+ "')");
+								
+							},
+							
+							miusnum(e){
+								var cindex = e.target.getAttribute("cindex");
+								if(this.cnum>0 && this.itemList[cindex].num >0){
+									this.cnum = --this.cnum; 
+									var parentWindow = plus.webview.getLaunchWebview();
+									//给父窗口传递数据
+									var value = this.cnum;
+									this.itemList[cindex].num = --this.itemList[cindex].num<=0?0:this.itemList[cindex].num ;
+									//开始传递
+									parentWindow.evalJS("window.addnum('" +value+ "')");
+								}
+							},
+							
+							changecate(e){
+								this.cindex = e.target.getAttribute("cindex");
+							},
+							
+							toAddress(){
+								plus.webview.open("selectcity.html","selectcity.html",{},"slide-in-right",100);
+							},
+							
+							tosaoyisao(){
+								plus.webview.open("saoyisao.html","saoyisao.html",{},"slide-in-right",100);
+							},
+							
+							todetail(){
+								/*var detailView = plus.webview.open("detail.html","detail.html",{},"slide-in-right",100,function(){
+									mui.fire(detailView,"fire",{
+										detailId:"1111"
+									});
+								});*/
+								var loginView = plus.webview.create("detail.html","detail.html",{},{
+									detailId:"123"
+								});
+								//打开窗口
+								plus.webview.show("detail.html","slide-in-right",100);
+								
+							}
+						}
+					});
+				
+				
+			})(mui,window)
+			
+			
+		</script>
+	</body>
+
+</html>

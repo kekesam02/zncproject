@@ -1,0 +1,326 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript" src="js/flexable.js" ></script>
+		<link rel="stylesheet" type="text/css" href="css/main-c.css"/>
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<style type="text/css">
+			.headerbox{padding:1.8rem 0 1.75rem;border-bottom:1px solid #eee;}
+			.C-empty-text{margin-top:10px;padding:8px 0 10px;text-align:center;color:#7f7f7f;line-height:20px;font-size:14px;}
+			.sp_title{font-size:16px;text-align:center;height:50px;line-height:60px;color:#FFFFFF;background:#00B388;position:fixed;left:0;top:0;right:0;z-index:100;}
+			.sp_iconc{text-align:center;width:100%;height:128px;background:url(img/shopcar-e.png) no-repeat center;background-size:auto 100%;display:inline-block;vertical-align:middle;}
+			.P-recommend-wrap[data-v-2d355a09]{margin-top:10px;padding:0 15px;background-color:#fff;}
+			.P-recommend-wrap .P-recommend-header[data-v-2d355a09]{height:50px;margin:0;padding:0;font-size:18px;color:#000;font-weight:500;line-height:50px;}
+			.P-recommend-wrap .P-recommend-list[data-v-2d355a09]{flex-wrap:wrap;-webkit-flex-wrap:wrap;}
+			.flex{display:-webkit-box;display:-webkit-flex;display:-moz-flex;display:-ms-flexbox;display:flex;}
+			.P-recommend-wrap .P-recommend-item[data-v-2d355a09]{width:48%;margin-right:2%;margin-bottom:6%;flex-shrink:0;-webkit-flex-shrink:0;}
+			.P-recommend-wrap .P-recommend-item-box[data-v-2d355a09]{box-sizing:border-box;width:100%;}
+			.P-recommend-wrap .P-recommend-item-image[data-v-2d355a09]{position:relative;margin:15px 0 7px;text-align:center;}
+			.P-recommend-wrap .P-recommend-item-img[data-v-2d355a09]{width:74%;}
+			.P-recommend-wrap .P-recommend-item-tags[data-v-2d355a09]{height:20px;padding:0 6%;margin-bottom:4px;}
+			.P-recommend-wrap .P-recommend-item-price-content[data-v-2d355a09]{flex:1;-webkit-flex:1;}
+			.P-recommend-wrap .P-recommend-item-coupon-price[data-v-2d355a09]{margin-top:3px;font-size:12px;line-height:14px;color:rgba(245,166,35,.5);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+			.P-recommend-wrap .P-recommend-item-name[data-v-2d355a09]{box-sizing:border-box;width:100%;margin-top:6px;padding:0 4px 0 0;color:#474346;font-size:14px;line-height:20px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+			.P-recommend-wrap .P-recommend-item-price[data-v-2d355a09]{font-size:14px;line-height:20px;color:#00B388;padding-top:8%;align-items:center;-webkit-align-items:center;}
+			.P-recommend-wrap .P-recommend-nomore[data-v-2d355a09]{width:100%;height:50px;line-height:50px;text-align:center;color:#969696;font-size:12px;}
+			.sp_icon{width:100%;height:128px;background:url(img/shopcar-e.png) no-repeat center;background-size:auto 100%;}
+			.C-empty .btn{height:1.2rem;text-align:center;}
+			.C-empty .btn a{position:relative;display:inline-block;width:132px;height:36px;border:1px solid #11b57c;border-radius:6px;line-height:36px;font-size:14px;color:#11b57c;}
+			.cart-express{position:fixed;top:50px;left:0;width:100%;height:36px;padding:0 0 0 .32rem;box-sizing:border-box;background:#fff9eb;line-height:36px;font-size:12px;color:#d3b162;z-index:100;text-align:center;}
+			.cart-login{position:fixed;top:0px;left:0;width:100%;height:50px;background:#eee;line-height:50px;font-size:14px;color:#808080;text-align:center;z-index:100;display:none;}
+			.cart-login a{position:relative;display:inline-block;width:46px;border-radius:6px;height:20px;margin:-2px 0 0 20px;line-height:20px;color:#fff;font-size:12px;background:#00B388;}
+			.cart-login a:after{border-radius:6px;border-color:#808080;}
+		</style>
+		
+	</head>
+	<body>
+
+		<div id="app">
+			<div id="refreshContainer">
+			<h1 class="sp_title">我的购物车</h1>
+			<div class="headerbox">
+				<div class="C-empty">
+					<span class="sp_iconc"></span>
+					<p class="C-empty-text fz14">购物车空空的，快去逛逛吧！</p>
+					<div class="btn" @click="toindex"><a>去逛逛</a></div>
+				</div>
+			</div>
+			<div class="cart-login line-bottom" >登录可同步购物车内商品<a href="javascript:;" @click="tologin" class="line-all">登录</a></div>
+			<div class="cart-express sale-top line-bottom elli pd padTop">全场满100元包邮,还差<span class="red">100.00</span>元包邮</div>
+			<div class="cart-wrap">
+	<!---->
+	<div class="toppad pd" style="">
+	</div>
+	<div class="goods">
+		<div class="group line-bottom">
+			<div class="saleGroup line-top">
+				<!---->
+				<div class="one line-bottom">
+					<div class="check"><i class="active"></i></div>
+					<div class="img"><img src="https://img09.yiguoimg.com/d/items/2018/180914/9288731201381678_300.jpg"></div>
+					<div class="text">
+						<h2 class="elli2">美国Moon Drop’s无籽黑提500g</h2>
+						<div class="tag">
+							<!---->
+						</div>
+						<p><strong class="red">￥<b>39.90</b></strong> <span class="bl">￥52.9</span></p>
+					</div>
+					<div class="del"><i></i></div>
+					<div class="limit red"></div>
+					<div class="num"><span class="cut line-all active"><i></i></span> <span class="input line-bottom">1</span> <span class="add line-all"><i></i></span></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="saleall line-top" style="">
+		<dl class="line-bottom noreach"><dt><span class="tag">全网满赠</span></dt>
+			<dd>满168元得赠品，赠完即止</dd>
+			<dd class="pd"><span>× 1</span>
+				<p class="elli">新疆红提1kg</p>
+			</dd>
+			<dd class="ri">随订单发出（以结算金额为准）</dd>
+		</dl>
+	</div>
+	<div class="invalid line-top" style="display: none;">
+		<div class="title line-bottom">失效商品</div>
+		<div class="list"></div>
+		<div class="btn line-bottom">
+			<a href="javascript:;" class="line-all">清除失效商品</a>
+		</div>
+	</div>
+	<!---->
+	<div class="guess line-bottom">
+		<div class="title line-top">
+			<h2>猜你喜欢</h2></div>
+		<div class="list clear">
+			<div class="one">
+				<div class="img"><img src="https://img11.yiguoimg.com/d/items/2018/180828/9288730142680348_300.jpg"></div>
+				<div class="text">
+					<h2 class="elli2">新疆红提1kg</h2>
+					<p><strong class="red">￥<b>26.80</b></strong></p>
+				</div>
+				<div class="btn">
+					<a href="javascript:;"></a>
+				</div>
+			</div>
+			<div class="one">
+				<div class="img"><img src="https://img11.yiguoimg.com/d/items/2018/180808/9288727987594504_300.jpg"></div>
+				<div class="text">
+					<h2 class="elli2">越南红心火龙果2个(大果)410g以上/个</h2>
+					<p><strong class="red">￥<b>39.00</b></strong></p>
+				</div>
+				<div class="btn">
+					<a href="javascript:;"></a>
+				</div>
+			</div>
+			<div class="one">
+				<div class="img"><img src="https://img11.yiguoimg.com/d/items/2018/180423/9288722024637591_300.jpg"></div>
+				<div class="text">
+					<h2 class="elli2">意大利进口Dolomia多洛米亚天然饮用水经典款1.5L</h2>
+					<p><strong class="red">￥<b>23.00</b></strong></p>
+				</div>
+				<div class="btn">
+					<a href="javascript:;"></a>
+				</div>
+			</div>
+			<div class="one">
+				<div class="img"><img src="https://img13.yiguoimg.com/d/items/2018/180808/9288727987954952_300.jpg"></div>
+				<div class="text">
+					<h2 class="elli2">澳大利亚蜜柑6个约150g/个</h2>
+					<p><strong class="red">￥<b>48.90</b></strong></p>
+				</div>
+				<div class="btn">
+					<a href="javascript:;"></a>
+				</div>
+			</div>
+			<div class="one">
+				<div class="img"><img src="https://img12.yiguoimg.com/d/items/2018/180808/9288727992673544_300.jpg"></div>
+				<div class="text">
+					<h2 class="elli2">陕西大荔冬枣500g10g以上/个</h2>
+					<p><strong class="red">￥<b>9.90</b></strong></p>
+				</div>
+				<div class="btn">
+					<a href="javascript:;"></a>
+				</div>
+			</div>
+			<div class="one">
+				<div class="img"><img src="https://img10.yiguoimg.com/d/items/2018/180913/9288731145217325_300.jpg"></div>
+				<div class="text">
+					<h2 class="elli2">新疆库尔勒精选香梨1kg约120g/个</h2>
+					<p><strong class="red">￥<b>22.80</b></strong></p>
+				</div>
+				<div class="btn">
+					<a href="javascript:;"></a>
+				</div>
+			</div>
+			<div class="one">
+				<div class="img"><img src="https://img09.yiguoimg.com/d/items/2018/180925/9288731759453497_300.jpg"></div>
+				<div class="text">
+					<h2 class="elli2">秘鲁蓝莓2盒(约125g/盒)</h2>
+					<p><strong class="red">￥<b>59.80</b></strong></p>
+				</div>
+				<div class="btn">
+					<a href="javascript:;"></a>
+				</div>
+			</div>
+			<div class="one">
+				<div class="img"><img src="https://img11.yiguoimg.com/d/items/2018/180808/9288728018429192_300.jpg"></div>
+				<div class="text">
+					<h2 class="elli2">云南蒙自石榴6个约225g/个</h2>
+					<p><strong class="red">￥<b>35.80</b></strong></p>
+				</div>
+				<div class="btn">
+					<a href="javascript:;"></a>
+				</div>
+			</div>
+			<div class="one">
+				<div class="img"><img src="https://img12.yiguoimg.com/d/items/2018/180807/9288727867761927_300.jpg"></div>
+				<div class="text">
+					<h2 class="elli2">南非夏橙10个约140g/个</h2>
+					<p><strong class="red">￥<b>19.90</b></strong></p>
+				</div>
+				<div class="btn">
+					<a href="javascript:;"></a>
+				</div>
+			</div>
+			<div class="one">
+				<div class="img"><img src="https://img09.yiguoimg.com/d/items/2018/180913/9288731143316781_300.jpg"></div>
+				<div class="text">
+					<h2 class="elli2">新疆库尔勒精选香梨2kg约120g/个</h2>
+					<p><strong class="red">￥<b>41.80</b></strong></p>
+				</div>
+				<div class="btn">
+					<a href="javascript:;"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="cart-total line-top">
+		<div class="check"><i class="active"></i>全选</div>
+		<div class="text">
+			<p>合计(不含运费)：<b class="red">￥39.90</b></p> <span>已优惠: ￥0.00</span></div>
+		<div class="btn">
+			<a href="javascript:;" class="">去结算(1)</a>
+		</div>
+	</div>
+	<div class="maskHint" style="display: none;">
+		<div class="popup-hint">
+			<p class="hint-text">您确定删除吗？</p>
+			<div class="btnpop1 clear">
+				<a href="javascript:;" class="btnone">确定</a>
+				<a href="javascript:;" class="btntwo">取消</a>
+			</div>
+		</div>
+	</div>
+	<div class="citymask" style="display: none;">
+		<div class="gpstips">
+			<a href="javascript:;"><em class=" icon icon_gps"></em> 亲，请先选择您的收货城市
+				<em class=" icon icon_arrowright"></em></a>
+		</div>
+	</div>
+	<div class="oneButton" style="display: none;">
+		<div class="popup-hint"><i class="closeBtn"></i>
+			<p class="hint-text">购物车内有未带走的礼包哦~</p>
+			<div class="btnpop1 clear">
+				<a href="javascript:;" class="btnone">确定</a>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+			
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/vue.js"></script>
+		
+		<script type="text/javascript">
+			
+			(function($,win){
+				
+				mui.init({
+					 pullRefresh : {
+					    container:"#refreshContainer",//下拉刷新容器标识，querySelector能定位的css选择器均可，比如：id、.class等
+					    down : {
+					      style:'circle',//必选，下拉刷新样式，目前支持原生5+ ‘circle’ 样式
+					      color:'#2BD009', //可选，默认“#2BD009” 下拉刷新控件颜色
+					      height:'50px',//可选,默认50px.下拉刷新控件的高度,
+					      range:'100px', //可选 默认100px,控件可下拉拖拽的范围
+					      offset:'0px', //可选 默认0px,下拉刷新控件的起始位置
+					      auto: false,//可选,默认false.首次加载自动上拉刷新一次
+					      contentdown : "下拉可以刷新",//可选，在下拉可刷新状态时，下拉刷新控件上显示的标题内容
+					      contentover : "释放立即刷新",//可选，在释放可刷新状态时，下拉刷新控件上显示的标题内容
+					      contentrefresh : "正在刷新...",//可选，正在刷新状态时，下拉刷新控件上显示的标题内容
+					      callback :callbackPullfresh //必选，刷新函数，根据具体业务来编写，比如通过ajax从服务器获取新数据；
+					    },
+					    up : {
+					        height:1000,//可选,默认50.触发下拉刷新拖动距离,
+					        auto: false,//可选,默认false.首次加载自动上拉刷新一次
+					        color:'#2BD009', //可选，默认“#2BD009” 下拉刷新控件颜色
+					    	contentrefresh : "正在加载...",//可选，正在加载状态时，上拉加载控件上显示的标题内容
+      						contentnomore:'没有更多数据了',//可选，请求完毕若没有更多数据时显示的提醒内容；
+					    	callback:callbackPushfresh
+					    }
+					 }
+				});
+				
+				function callbackPullfresh(){
+					console.log("下拉刷新执行的数据请求......");
+					 //注意，加载完新数据后，必须执行如下代码，注意：若为ajax请求，则需将如下代码放置在处理完ajax响应数据之后
+				     //没有更多内容了，endPulldown 传入true， 不再执行下拉刷新
+				    mui('#refreshContainer').pullRefresh().endPulldownToRefresh();
+				};
+				
+				
+				function callbackPushfresh(){
+					console.log("上拉加载的时候执行的数据请求......");
+				     //重置上拉加载
+				     $('#refreshContainer').pullRefresh().refresh(true);
+				     //注意：
+				     //1、加载完新数据后，必须执行如下代码，true表示没有更多数据了：
+				     //2、若为ajax请求，则需将如下代码放置在处理完ajax响应数据之后
+				     //结束上拉加载
+				     setTimeout(function(){
+						$('#refreshContainer').pullRefresh().endPullupToRefresh(false);				     	
+				     },2000);
+				     //启用上拉刷新
+				     //$('#refreshContainer').pullRefresh().enablePullupToRefresh();
+				     //禁用上拉刷新
+				     //$('#refreshContainer').pullRefresh().disablePullupToRefresh();
+				};
+				
+				
+				mui.plusReady(function(){
+					
+				});
+				
+				
+				var app = new Vue({
+						el:"#app",
+						data: {
+							
+						},
+						methods:{
+							tologin(){
+								plus.webview.open('login.html',"login.html",{},"slide-in-right",100);
+							},
+							
+							toindex(){
+								var indexWindow = plus.webview.getLaunchWebview();
+								var value = "home.html";
+								indexWindow.evalJS("window.activeClass('" +value+ "')");
+								plus.webview.getWebviewById("home.html").show("fade-in",200);
+							}
+						}
+					});
+				
+				
+			})(mui,window)
+			
+			
+		</script>
+	
+	</body>
+</html>

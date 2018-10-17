@@ -1,0 +1,660 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript" src="js/flexable.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/main-c.css" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<style type="text/css">
+			.evaluate {}
+			
+			.evaluate .evalTop {
+				position: fixed;
+				left: 0;
+				top: 0;
+				z-index: 10;
+				width: 100%;
+			}
+			
+			.evaluate .satisfaction {
+				height: 1.5rem;
+				background: #fff9eb;
+				position: relative;
+				width: 100%;
+			}
+			
+			.evaluate .satisfaction:after {
+				background: #d3b162
+			}
+			
+			.evaluate .content {
+				padding-top: 2.8rem
+			}
+			
+			.evaluate .satisfaction .gload {
+				color: #d3b162
+			}
+			
+			.evaluate .satisfaction .red {
+				color: #fb3d3d
+			}
+			
+			.evaluate .satisfaction .all {
+				font: 0.42rem/1.5rem "";
+				left: 0.32rem;
+				position: absolute
+			}
+			
+			.evaluate .satisfaction .lineBox:after {
+				background: #d3b162
+			}
+			
+			.evaluate .satisfaction .stars-bg {
+				width: 2.82rem;
+				height: .44rem;
+				background: url("//img07.yiguoimg.com/d/web/180313/01314/114248/stars.png") no-repeat;
+				background-size: 2.82rem .88rem;
+				position: absolute;
+				left: 2.6rem;
+				top: .54rem;
+				background-position: 0 -.44rem;
+			}
+			
+			.evaluate .satisfaction .stars-bg .star {
+				height: .44rem;
+				background: url("//img07.yiguoimg.com/d/web/180313/01314/114248/stars.png") no-repeat;
+				background-size: 2.82rem .88rem;
+				position: absolute;
+				display: inline-block;
+			}
+			
+			.evaluate .satisfaction .score {
+				position: absolute;
+				right: 0.32rem
+			}
+			
+			.evaluate .satisfaction .score b {
+				font: 700 0.72rem/1.5rem ""
+			}
+			
+			.evaluate .satisfaction .score span {
+				font-size: 0.42rem;
+				font-weight: 600
+			}
+			
+			.evaluateCategory {
+				height: 1.61rem;
+				background: #fff;
+				position: relative
+			}
+			
+			.evaluateCategory a {
+				width: 2.35rem;
+				text-align: center;
+				height: 1.22rem;
+				margin: .15rem 0;
+				font-size: .34rem;
+				color: #333;
+				display: inline-block;
+				position: relative;
+				float: left
+			}
+			
+			.evaluateCategory a:after {
+				border-right: 2px solid #ddd
+			}
+			
+			.evaluateCategory .first {
+				width: 3.4rem;
+			}
+			
+			.evaluateCategory .first img {
+				width: .55rem;
+				height: .55rem;
+				position: absolute;
+				left: .32rem;
+				top: .24rem
+			}
+			
+			.evaluateCategory .first span {
+				position: absolute;
+				right: 0.28rem;
+				bottom: .3rem
+			}
+			
+			.evaluateCategory a:last-child:after {
+				background: #fff;
+				border-right: none
+			}
+			
+			.evaluateCategory .active {
+				color: #d3b162
+			}
+			
+			.content {
+				background: #f4f4f4;
+			}
+			
+			.content .contentUl .contentLi {
+				margin-top: .32rem;
+				background: #fff;
+				position: relative;
+				padding-bottom: .5rem
+			}
+			
+			.content .contentUl .contentLi .neirong {
+				padding: .5rem .32rem .16rem;
+			}
+			
+			.content .contentUl .contentLi .neirong .txt {
+				padding: .62rem 0 0rem;
+			}
+			
+			.content .contentUl .contentLi .neirong .txt .left {
+				position: relative;
+				padding-left: 1.1rem;
+				box-sizing: border-box;
+			}
+			
+			.content .contentUl .contentLi .neirong .txt .left .userName {
+				position: absolute;
+				left: 1.1rem;
+				top: -.62rem;
+				font-size: .36rem
+			}
+			
+			.content .contentUl .contentLi .neirong .txt .stars-bg {
+				width: 2.82rem;
+				height: .44rem;
+				background: url("//img07.yiguoimg.com/d/web/180313/01314/114248/stars.png") no-repeat;
+				background-size: 2.82rem .88rem;
+				position: absolute;
+				background-position: 0 -.44rem;
+			}
+			
+			.content .contentUl .contentLi .neirong .txt .stars-bg .star {
+				height: .44rem;
+				background: url("//img07.yiguoimg.com/d/web/180313/01314/114248/stars.png") no-repeat;
+				background-size: 2.82rem .88rem;
+				position: absolute;
+				display: inline-block;
+			}
+			
+			.content .contentUl .contentLi .neirong .txt .imgHeaer {
+				position: absolute;
+				left: 0;
+				top: -.62rem;
+				width: 1.03rem;
+				height: 1.03rem;
+				border-radius: 20px;
+				display: inline-block;
+			}
+			
+			.content .contentUl .contentLi .neirong .txt .name {
+				line-height: 18px;
+				position: absolute;
+				top: -.62rem;
+				right: .2rem;
+				color: #808080;
+				font-size: .36rem
+			}
+			
+			.content .contentUl .contentLi .neirong .text {
+				font-size: .38rem;
+				color: #808080;
+				line-height: .6rem;
+				margin: 0;
+				padding-top: .85rem;
+			}
+			
+			.content .contentUl .contentLi .img ul {
+				float: left;
+				margin-top: .17rem;
+				position: relative
+			}
+			
+			.content .contentUl .contentLi .img ul li {
+				float: left;
+				width: 2rem;
+				height: 2rem;
+				margin: .34rem .17rem
+			}
+			
+			.content .contentUl .contentLi .img ul li img {
+				width: 2rem;
+				height: 2rem;
+			}
+			
+			.content .contentUl .contentLi .reply {
+				position: relative;
+				width: 11.78rem;
+				border-radius: .06rem;
+				background: #f4f4f4;
+				margin: 0 .32rem
+			}
+			
+			.content .contentUl .contentLi .reply img {
+				position: absolute;
+				width: .31rem;
+				height: .16rem;
+				left: .47rem;
+				top: -0.16rem;
+			}
+			
+			.content .contentUl .contentLi .reply p {
+				font-size: .38rem;
+				color: #808080;
+				padding: .4rem
+			}
+			
+			.content .contentUl .contentLi .reply p span {
+				font-size: .38rem;
+				color: #11b57c;
+				padding-right: .42rem
+			}
+		</style>
+
+	</head>
+
+	<body>
+
+		<div id="app">
+			<div id="evaluate" class="wrap evaluate">
+				<div class="evalTop">
+					<div class="satisfaction line-bottom">
+						<div class="line-top lineBox"><b class="gload all">总体满意度</b>
+							<div class="stars-bg"><span class="star" style="width: 100%;"></span></div>
+							<div class="score"><b class="red">5</b> <span class="red">分</span></div>
+						</div>
+					</div>
+					<div class="evaluateCategory line-bottom clear">
+						<a class="first line-right">
+							<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADYAAAA2CAYAAACMRWrdAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAAsSAAALEgHS3X78AAAE4klEQVRo3u2aTWwVVRTHf2/wIyaliYgLCiSKTQUVUTku/Eyjcalx4xe0hapUjJpoYqx2AYEEKH5EEkxEUUqLVYkbw1ZjREETPQTBWAUUTKBlA5iUJkZRcTFn+s4Mz2ffvNfO1PhfnXtm5s7/P3Pn3rnnnAI1hKpOAa4DbgGuBa4EZgOXAHV22ghwEjgKHAC+BXYB34jIn7XiUqiBmAJwG7AEuBeYlrKrU8CHQC/wuYiczUSYql4ALAU6gTnVPqAEfgJeBLaKyO8TIszeUDuwCphV4pQB4GNgP+FQOwqcFJERu76OcGjOJhyq84G7gKtK9HUMWAn0VPoGKxKmqo1AD3Br4tAQsBXoFZGDaZ6wqjYRDud2YEbi8C6gXUR+rLkwVb0PeAuod+6fgRUisi2NmDL3agVWA5c59zDwqIh8UBNhqhoA64FnE4ceF5FNtRRU4t7LgdcT7peBThH5K7Uwm757gcXO/b09uS/GU5TjcDPhSJnn3O8CbeWWh6BMhwVgS0JUL7BgokQB2L0W2L0jLAJ6jGNJnFemz7VAm2t3i8gLEyUoIe4MsFRVh4CIQysw6NoxlFSsqvcD253rJRF5LgtRJbitBzyXB0Vke/K8QokLG4E9FGe/fhFpyVpQguM7FD+RYWBhcikIEhcUgM1O1ADh30XesAT4zux6YHPye0tOHouAZtdeJiJ/ZK0iCZsNO5yrmfgkVxyKqnoRcAiYaa6nROS1rEWUg6o+CWy05hDQKCK/QvyNPeJEHcm7KADjeNiaDaaBUWE2Pp9212QyradEl7Ofib616I3dDlxh9vFS02deYVyHrDnHtIwK8wvxlqzJpkCPs9sAAnt1d7sDfVmzTAHP+R5VLQTANcCl5jyQdj+VJYzzD9acDswPiK9bn2RNsgp47s0BcINzfJU1uyrwtbOvD4BG5xjz1juH8NwbA+IBmWNZs6sCg86eGRB+bBFOZM2uCgw7uz6gGKElCpFNUpx29tQgdTc5R0AYSwdGg5mTFVOdfTog/l1Nr7CzPOEcYX4mnFVhZ3lCbHYPSMz/WbOrArH1OAD2OseNWbOrAuLsvQHwqXPckTW7KnCns3cGhBnFaAKZa1mPSQXjPNeaJ4D9geWddrjz2iruOXt4zjtE5Gy0QPuN2sNZs0yBdmf3QTE08BlhehRghqo+kDXTscLC8Q3WPGxaQmE2HDe489dmTbgCrHP2hiil6/8V38ZFeywYmWuo6hMUE/tDhHk0YsIsgtrprttoSbdcwrj5oG5nFAWOCTP0E1/X3rSsZq5g6eM3nGuncR9FTJiNzw6Km7ariWcS84I+wugaxnVZslzinP2YiBwinslYrKrdWSuJoKrriGdWHjPOMZTcaFrY2IvpVNU1ORC1BnjeubpF5P1S55bLQXcRbgWibGaXqjYAHZYTnkhB5wObiP889BNPSMQwlnKIbcBDzp2Hcoj3gNZU5RAwmjlsAV5x7nnAbisuGW9Ry4HdCVGvAi3/VgJYbcnREWDlOJUcrQIud+7alhwlbvjfKxJzBALCSoLVFFO7HgPAR8A+4CBhWd8pERmxSaAOuNjINxFW3fxTWd8gsIKwbrFs7VTVwpzAC+0Jj2chZq+I/Jamg/9LZ8cocgqwELiJcIg1EVaSTiMcgmcIA7S/AMcJh+o+4EtgTy2Lnf8GP5mWgRB+tgYAAAAASUVORK5CYII="> <span>只看有内容</span></a>
+						<a class="line-right active">
+							<div>全部<br><span>383</span></div>
+						</a>
+						<a class="line-right">
+							<div>好评<br><span>382</span></div>
+						</a>
+						<a class="line-right">
+							<div>中评<br><span>1</span></div>
+						</a>
+						<a class="line-right">
+							<div>差评<br><span>0</span></div>
+						</a>
+					</div>
+				</div>
+				<div class="content">
+					<ul class="contentUl">
+						<li class="line-top contentLi">
+							<div class="neirong line-bottom">
+								<div class="txt clear">
+									<div class="left"><img src="https://img02.yiguo.com/e/web/150703/00781/140145/no-pic.jpg" alt="" class="imgHeaer">
+										<p class="userName">gr***61</p>
+										<div class="stars-bg"><span class="star" style="width: 100%;"></span></div> <span class="name">2018-10-16</span></div>
+								</div>
+								<p class="text">超时未评价，系统默认好评</p>
+								<div class="img">
+									<ul></ul>
+									<div class="clear"></div>
+								</div>
+							</div>
+							<!---->
+						</li>
+						<li class="line-top contentLi">
+							<div class="neirong line-bottom">
+								<div class="txt clear">
+									<div class="left"><img src="https://img02.yiguo.com/e/web/150703/00781/140145/no-pic.jpg" alt="" class="imgHeaer">
+										<p class="userName">13***34</p>
+										<div class="stars-bg"><span class="star" style="width: 100%;"></span></div> <span class="name">2018-10-16</span></div>
+								</div>
+								<p class="text">超时未评价，系统默认好评</p>
+								<div class="img">
+									<ul></ul>
+									<div class="clear"></div>
+								</div>
+							</div>
+							<!---->
+						</li>
+						<li class="line-top contentLi">
+							<div class="neirong line-bottom">
+								<div class="txt clear">
+									<div class="left"><img src="https://img02.yiguo.com/e/web/150703/00781/140145/no-pic.jpg" alt="" class="imgHeaer">
+										<p class="userName">Is***08</p>
+										<div class="stars-bg"><span class="star" style="width: 100%;"></span></div> <span class="name">2018-10-16</span></div>
+								</div>
+								<p class="text">超时未评价，系统默认好评</p>
+								<div class="img">
+									<ul></ul>
+									<div class="clear"></div>
+								</div>
+							</div>
+							<!---->
+						</li>
+						<li class="line-top contentLi">
+							<div class="neirong line-bottom">
+								<div class="txt clear">
+									<div class="left"><img src="https://img02.yiguo.com/e/web/150703/00781/140145/no-pic.jpg" alt="" class="imgHeaer">
+										<p class="userName">he***an</p>
+										<div class="stars-bg"><span class="star" style="width: 100%;"></span></div> <span class="name">2018-10-16</span></div>
+								</div>
+								<p class="text">超时未评价，系统默认好评</p>
+								<div class="img">
+									<ul></ul>
+									<div class="clear"></div>
+								</div>
+							</div>
+							<!---->
+						</li>
+						<li class="line-top contentLi">
+							<div class="neirong line-bottom">
+								<div class="txt clear">
+									<div class="left"><img src="https://img02.yiguo.com/e/web/150703/00781/140145/no-pic.jpg" alt="" class="imgHeaer">
+										<p class="userName">zj***vi</p>
+										<div class="stars-bg"><span class="star" style="width: 100%;"></span></div> <span class="name">2018-10-16</span></div>
+								</div>
+								<p class="text">超时未评价，系统默认好评</p>
+								<div class="img">
+									<ul></ul>
+									<div class="clear"></div>
+								</div>
+							</div>
+							<!---->
+						</li>
+						<li class="line-top contentLi">
+							<div class="neirong line-bottom">
+								<div class="txt clear">
+									<div class="left"><img src="https://img02.yiguo.com/e/web/150703/00781/140145/no-pic.jpg" alt="" class="imgHeaer">
+										<p class="userName">13***68</p>
+										<div class="stars-bg"><span class="star" style="width: 100%;"></span></div> <span class="name">2018-10-16</span></div>
+								</div>
+								<p class="text">超时未评价，系统默认好评</p>
+								<div class="img">
+									<ul></ul>
+									<div class="clear"></div>
+								</div>
+							</div>
+							<!---->
+						</li>
+						<li class="line-top contentLi">
+							<div class="neirong line-bottom">
+								<div class="txt clear">
+									<div class="left"><img src="https://img02.yiguo.com/e/web/150703/00781/140145/no-pic.jpg" alt="" class="imgHeaer">
+										<p class="userName">13***14</p>
+										<div class="stars-bg"><span class="star" style="width: 100%;"></span></div> <span class="name">2018-10-16</span></div>
+								</div>
+								<p class="text">超时未评价，系统默认好评</p>
+								<div class="img">
+									<ul></ul>
+									<div class="clear"></div>
+								</div>
+							</div>
+							<!---->
+						</li>
+						<li class="line-top contentLi">
+							<div class="neirong line-bottom">
+								<div class="txt clear">
+									<div class="left"><img src="https://img02.yiguo.com/e/web/150703/00781/140145/no-pic.jpg" alt="" class="imgHeaer">
+										<p class="userName">13***92</p>
+										<div class="stars-bg"><span class="star" style="width: 100%;"></span></div> <span class="name">2018-10-16</span></div>
+								</div>
+								<p class="text">超时未评价，系统默认好评</p>
+								<div class="img">
+									<ul></ul>
+									<div class="clear"></div>
+								</div>
+							</div>
+							<!---->
+						</li>
+						<li class="line-top contentLi">
+							<div class="neirong line-bottom">
+								<div class="txt clear">
+									<div class="left"><img src="https://img02.yiguo.com/e/web/150703/00781/140145/no-pic.jpg" alt="" class="imgHeaer">
+										<p class="userName">13***42</p>
+										<div class="stars-bg"><span class="star" style="width: 100%;"></span></div> <span class="name">2018-10-16</span></div>
+								</div>
+								<p class="text">超时未评价，系统默认好评</p>
+								<div class="img">
+									<ul></ul>
+									<div class="clear"></div>
+								</div>
+							</div>
+							<!---->
+						</li>
+						<li class="line-top contentLi">
+							<div class="neirong line-bottom">
+								<div class="txt clear">
+									<div class="left"><img src="yiguo.gif" alt="" class="imgHeaer">
+										<p class="userName">su***al</p>
+										<div class="stars-bg"><span class="star" style="width: 100%;"></span></div> <span class="name">2018-10-16</span></div>
+								</div>
+								<p class="text">超时未评价，系统默认好评</p>
+								<div class="img">
+									<ul></ul>
+									<div class="clear"></div>
+								</div>
+							</div>
+							<!---->
+						</li>
+						<li class="line-top contentLi">
+							<div class="neirong line-bottom">
+								<div class="txt clear">
+									<div class="left"><img src="https://img02.yiguo.com/e/web/150703/00781/140145/no-pic.jpg" alt="" class="imgHeaer">
+										<p class="userName">13***07</p>
+										<div class="stars-bg"><span class="star" style="width: 100%;"></span></div> <span class="name">2018-10-16</span></div>
+								</div>
+								<p class="text">超时未评价，系统默认好评</p>
+								<div class="img">
+									<ul></ul>
+									<div class="clear"></div>
+								</div>
+							</div>
+							<!---->
+						</li>
+						<li class="line-top contentLi">
+							<div class="neirong line-bottom">
+								<div class="txt clear">
+									<div class="left"><img src="https://img02.yiguo.com/e/web/150703/00781/140145/no-pic.jpg" alt="" class="imgHeaer">
+										<p class="userName">韩丹***83</p>
+										<div class="stars-bg"><span class="star" style="width: 100%;"></span></div> <span class="name">2018-10-16</span></div>
+								</div>
+								<p class="text">超时未评价，系统默认好评</p>
+								<div class="img">
+									<ul></ul>
+									<div class="clear"></div>
+								</div>
+							</div>
+							<!---->
+						</li>
+						<li class="line-top contentLi">
+							<div class="neirong line-bottom">
+								<div class="txt clear">
+									<div class="left"><img src="http://img05.yiguoimg.com/e/thumbnails/100/170516/369576678155264688.jpg" alt="" class="imgHeaer">
+										<p class="userName">wj***an</p>
+										<div class="stars-bg"><span class="star" style="width: 100%;"></span></div> <span class="name">2018-10-16</span></div>
+								</div>
+								<p class="text">超时未评价，系统默认好评</p>
+								<div class="img">
+									<ul></ul>
+									<div class="clear"></div>
+								</div>
+							</div>
+							<!---->
+						</li>
+						<li class="line-top contentLi">
+							<div class="neirong line-bottom">
+								<div class="txt clear">
+									<div class="left"><img src="http://img05.yiguoimg.com/e/thumbnails/100/170308/369576675178521192.jpg" alt="" class="imgHeaer">
+										<p class="userName">13***24</p>
+										<div class="stars-bg"><span class="star" style="width: 100%;"></span></div> <span class="name">2018-10-16</span></div>
+								</div>
+								<p class="text">超时未评价，系统默认好评</p>
+								<div class="img">
+									<ul></ul>
+									<div class="clear"></div>
+								</div>
+							</div>
+							<!---->
+						</li>
+						<li class="line-top contentLi">
+							<div class="neirong line-bottom">
+								<div class="txt clear">
+									<div class="left"><img src="https://img02.yiguo.com/e/web/150703/00781/140145/no-pic.jpg" alt="" class="imgHeaer">
+										<p class="userName">13***82</p>
+										<div class="stars-bg"><span class="star" style="width: 100%;"></span></div> <span class="name">2018-10-16</span></div>
+								</div>
+								<p class="text">超时未评价，系统默认好评</p>
+								<div class="img">
+									<ul></ul>
+									<div class="clear"></div>
+								</div>
+							</div>
+							<!---->
+						</li>
+						<li class="line-top contentLi">
+							<div class="neirong line-bottom">
+								<div class="txt clear">
+									<div class="left"><img src="https://img02.yiguo.com/e/web/150703/00781/140145/no-pic.jpg" alt="" class="imgHeaer">
+										<p class="userName">ri***08</p>
+										<div class="stars-bg"><span class="star" style="width: 100%;"></span></div> <span class="name">2018-10-16</span></div>
+								</div>
+								<p class="text">超时未评价，系统默认好评</p>
+								<div class="img">
+									<ul></ul>
+									<div class="clear"></div>
+								</div>
+							</div>
+							<!---->
+						</li>
+						<li class="line-top contentLi">
+							<div class="neirong line-bottom">
+								<div class="txt clear">
+									<div class="left"><img src="https://img02.yiguo.com/e/web/150703/00781/140145/no-pic.jpg" alt="" class="imgHeaer">
+										<p class="userName">13***09</p>
+										<div class="stars-bg"><span class="star" style="width: 100%;"></span></div> <span class="name">2018-10-16</span></div>
+								</div>
+								<p class="text">超时未评价，系统默认好评</p>
+								<div class="img">
+									<ul></ul>
+									<div class="clear"></div>
+								</div>
+							</div>
+							<!---->
+						</li>
+						<li class="line-top contentLi">
+							<div class="neirong line-bottom">
+								<div class="txt clear">
+									<div class="left"><img src="https://img02.yiguo.com/e/web/150703/00781/140145/no-pic.jpg" alt="" class="imgHeaer">
+										<p class="userName">lv***kj</p>
+										<div class="stars-bg"><span class="star" style="width: 100%;"></span></div> <span class="name">2018-10-16</span></div>
+								</div>
+								<p class="text">超时未评价，系统默认好评</p>
+								<div class="img">
+									<ul></ul>
+									<div class="clear"></div>
+								</div>
+							</div>
+							<!---->
+						</li>
+						<li class="line-top contentLi">
+							<div class="neirong line-bottom">
+								<div class="txt clear">
+									<div class="left"><img src="yiguo.gif" alt="" class="imgHeaer">
+										<p class="userName">小猫***上路</p>
+										<div class="stars-bg"><span class="star" style="width: 100%;"></span></div> <span class="name">2018-10-16</span></div>
+								</div>
+								<p class="text">超时未评价，系统默认好评</p>
+								<div class="img">
+									<ul></ul>
+									<div class="clear"></div>
+								</div>
+							</div>
+							<!---->
+						</li>
+						<li class="line-top contentLi">
+							<div class="neirong line-bottom">
+								<div class="txt clear">
+									<div class="left"><img src="https://img02.yiguo.com/e/web/150703/00781/140145/no-pic.jpg" alt="" class="imgHeaer">
+										<p class="userName">cm***wq</p>
+										<div class="stars-bg"><span class="star" style="width: 100%;"></span></div> <span class="name">2018-10-16</span></div>
+								</div>
+								<p class="text">超时未评价，系统默认好评</p>
+								<div class="img">
+									<ul></ul>
+									<div class="clear"></div>
+								</div>
+							</div>
+							<!---->
+						</li>
+					</ul>
+				</div>
+				<div class="citymask" style="display: none;">
+					<div class="gpstips">
+						<a href="javascript:;"><em class=" icon icon_gps"></em> 亲，请先选择您的收货城市
+							<em class=" icon icon_arrowright"></em></a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/vue.js"></script>
+		<script type="text/javascript">
+			var app = new Vue({
+				el: "#app",
+				data: {
+					active: 0,
+					height: 0,
+					userName: "keke",
+					title: "hello",
+					cindex: 0,
+					testarr: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+					list: ["热卖", "水果", "零食", "酒饮", "粮油", "熟食", "其他"],
+					itemList: [{
+							"title": "items1",
+							"img": "https://img14.yiguoimg.com/d/items/2018/181010/9288732375033162_1125x652.jpg?w=1125&h=652"
+						},
+						{
+							"title": "items2",
+							"img": "https://img09.yiguoimg.com/d/items/2018/180929/9288731981686077_1125x652.jpg?w=1125&h=652"
+						},
+						{
+							"title": "items3",
+							"img": "https://img13.yiguoimg.com/d/items/2018/180929/9288731988927805_1125x652.jpg?w=1125&h=652"
+						}
+					]
+				},
+				methods: {
+
+					login: function() {
+
+					},
+
+					addnum: function() {
+						console.log(1)
+					},
+
+					miusnum: function() {
+
+					},
+
+					changecate: function(e) {
+						this.cindex = e.target.getAttribute("cindex");
+					}
+				}
+			});
+
+			//mui初始化
+			mui.init()
+			//手机app的加载初始化
+			mui.plusReady(function() {
+
+			});
+		</script>
+	</body>
+
+</html>

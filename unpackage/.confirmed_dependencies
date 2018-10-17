@@ -1,0 +1,115 @@
+{
+	"index.html": {
+		"refer": [
+			"list.html",
+			"zuji.html",
+			"home.html",
+			"setting.html",
+			"course.html",
+			"blog.html",
+			"friends.html",
+			"phone.html",
+			"other.html",
+			"shopcar.html",
+			"category.html",
+			"faxian.html"
+		],
+		"resources": [
+			"home.html",
+			"course.html",
+			"blog.html",
+			"faxian.html",
+			"shopcar.html"
+		]
+	},
+	"course.html": {
+		"resources": [
+			"course_list.html"
+		],
+		"refer": [
+			"course_list.html"
+		]
+	},
+	"course_list.html": {
+		"resources": [
+			"fonts/mui.ttf"
+		]
+	},
+	"friends.html": {
+		"resources": [
+			"friends_list.html"
+		],
+		"refer": [
+			"friends_list.html",
+			"test1.html",
+			"test3.html",
+			"test2.html"
+		]
+	},
+	"friends_list.html": {
+		"refer": [
+			"im-chat.html"
+		]
+	},
+	"home.html": {
+		"resources": [
+			"css/mui.min.css"
+		],
+		"refer": [
+			"detail.html",
+			"selectcity.html",
+			"saoyisao.html",
+			"home.html",
+			"search.html"
+		]
+	},
+	"category.html": {
+		"resources": [
+			"css/mui.min.css"
+		],
+		"refer": [
+			"search.html",
+			"category.html"
+		]
+	},
+	"setting.html": {
+		"refer": [
+			"login.html",
+			"setting-detail.html",
+			"orderList.html"
+		]
+	},
+	"faxian.html": {
+		"refer": [
+			"faxian-detail.html"
+		]
+	},
+	"detail.html": {
+		"refer": [
+			"commentlist.html",
+			"shopcar.html"
+		]
+	},
+	"shopcar.html": {
+		"refer": [
+			"login.html",
+			"index.html",
+			"home.html"
+		]
+	},
+	"setting-detail.html": {
+		"refer": [
+			"paypassword.html",
+			"ReturnPolicy.html",
+			"updatepwd.html",
+			"about.html",
+			"yinshi.html",
+			"shuoming.html"
+		]
+	},
+	"search.html": {
+		"refer": [
+			"shopcar.html"
+		]
+	}
+}

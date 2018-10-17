@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="js/mui.min.js"></script>
+    <link href="css/mui.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+    <link rel="stylesheet" type="text/css" href="css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="css/animate.css"/>
+    <style type="text/css">
+    	.mui-active{color: #00B388!important;}
+    </style>
+</head>
+<body>
+	<nav class="mui-bar mui-bar-tab" id="muilist">
+	    <a class="mui-tab-item mui-active" href="home.html">
+	        <span class="mui-icon iconfont icon-home"></span>
+	        <span class="mui-tab-label">首页</span>
+	    </a>
+	    <a class="mui-tab-item" href="category.html">
+	        <span class="mui-icon iconfont icon-icon-test"></span>
+	        <span class="mui-tab-label">分类</span>
+	    </a>
+	     <a class="mui-tab-item" href="faxian.html">
+	        <span class="mui-icon iconfont icon-fenleigongnengleimu"></span>
+	        <span class="mui-tab-label">发现</span>
+	    </a>
+	    <a class="mui-tab-item pr" id="shopnumbox" href="shopcar.html">
+	        <span class="mui-icon iconfont icon-gouwucheman1"></span>
+	        <span class="carnum fz12" id="shopnum">0</span>
+	        <span class="mui-tab-label">购物车</span>
+	    </a>
+	    <a class="mui-tab-item" href="setting.html">
+	        <span class="mui-icon iconfont icon-weibiaoti-_huabanfuben"></span>
+	        <span class="mui-tab-label">我的</span>
+	    </a>
+	</nav>w3s
+	<script>
+		(function($,win){
+			//mui组件初始化
+			$.init();
+			//页面集合
+			var pages = ["home.html","category.html","faxian.html","shopcar.html","setting.html"];
+			
+			//html5+的入门
+			$.plusReady(function(){
+				//设置组件的背景颜色
+				plus.navigator.setStatusBarBackground("#00B388");
+				plus.navigator.setStatusBarStyle("light");
+				
+				for (var i = 0; i < pages.length; i++) {
+					//创建一个webview的新窗口页面
+					var webview = plus.webview.create(pages[i],pages[i],{
+						top:0,
+						bottom:"49px"
+					});
+					//将创建的子窗口，添加到当前主窗口中。
+					plus.webview.currentWebview().append(webview);
+					if(i>0)webview.hide();
+				}
+				
+				
+				$("#muilist").on("tap",".mui-tab-item",function(){
+					var href = this.getAttribute("href");
+					//如果是点击一样的就忽略了
+					if(href == $(".mui-active")[0].getAttribute("href")){
+						return;
+					}
+					plus.webview.getWebviewById($(".mui-active")[0].getAttribute("href")).hide("fade-out",200);
+					plus.webview.getWebviewById(href).show("fade-in",200);
+					plus.webview.getWebviewById(href).show("fade-in",200);
+				});
+			});
+			
+		})(mui,window);
+		
+		function addnum(num){
+			document.getElementById("shopnum").innerHTML = (num>=100?"99+":num);
+			document.getElementById("shopnumbox").className = "mui-tab-item pr animated bounceIn";
+			setTimeout(function(){
+				document.getElementById("shopnumbox").className = "mui-tab-item pr";
+			},300);
+		}
+		
+		function activeClass(href){
+			var childrens = document.getElementById("muilist").children;
+			for (var i = 0; i < childrens.length; i++) {
+				if(childrens[i].getAttribute("href") == href){
+					childrens[i].className = "mui-tab-item pr mui-active";
+				}else{
+					childrens[i].className = "mui-tab-item pr";
+				}
+			}
+		}
+	</script>
+</body>
+</html>

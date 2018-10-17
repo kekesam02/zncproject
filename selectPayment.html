@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript" src="js/flexable.js" ></script>
+		<link rel="stylesheet" type="text/css" href="css/main-c.css"/>
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+	</head>
+	<body>
+
+		<div id="app">
+			<div id="settlement" class="settlement"><!----> <div class="information"><div class="address-site"><div class="name"><span>徐成飞</span><span>15074816437</span></div> <div class="address1"><i class="label">公司</i> <!----> <!----> <span class="address-details">上海宝山区给你好哦有来中路</span></div> <span class="arrow"></span></div> <!----></div> <div class="commodity1"><div class="title line-bottom"><p class="num">共<span>1</span>件商品</p></div> <div class="commodity-show"><ul class="scroll clear"><li class="list-img clear"><p class="imgShow"><img src="https://img14.yiguoimg.com/d/items/2018/180821/9288729739142421_300.jpg" alt=""> <!----></p></li></ul></div></div> <div class="information2"><div class="data line-bottom"><!----> <!----> <p class="time1"><span class="txt1">配送日期</span> <span class="txt3"><img src="//img05.yiguoimg.com/d/web/180515/01261/143357/time2.png" class="icon1">专享定时达
+                </span></p> <!----> <div id="show-btn1" class="timesPopup clear"><p id="change-value1" class="time2 clear"><span class="txt1">10月18日 星期四</span></p> <span class="txt4">09:00~21:00</span> <!----></div> <i class="arrow"></i></div> <div class="bill line-bottom"><span class="title">发票信息</span> <span class="txt">不需要发票<br></span> <i class="arrow"></i></div> <!----> <div class="inp-word clear"><span class="word">留言：</span> <input type="text" placeholder="如有特殊要求，请在此留言"></div></div> <div class="arch clear"><span class="title">优惠券<i class="num">3</i></span> <span class="txt">活动不可用券</span> <i class="arrow"></i></div> <div class="all"><div class="content line-bottom"><div class="price-line"><span class="left">商品合计</span><span class="right"> ¥1.00</span></div> <div class="price-line"><span class="left">运费</span><span class="freight" style="display: none;"></span><span class="right">¥10.00</span></div> <!----> <!----> <!----></div> <div class="bottom"><span class="left">应付金额</span><span class="right"> ¥11.00</span></div></div> <!----> <div class="ub"><span class="title">U币抵现<i class="now"></i></span> <span class="txt">当前订单实付金额&lt;10元，无法使用</span> <i class="icon disable"></i></div> <div class="balance line-top"><p class="price">应付金额：<span class="red"> ¥11.00</span></p> <button class="btn">结算</button></div> <div class="jumpHint" style="display: none;"><div class="text"><h2>提示</h2> <p></p> <a href="javascript:;" class="btntwo">去地址簿</a> <a href="javascript:;" class="btnone">去首页</a></div></div> <div class="citymask" style="display: none;"><div class="gpstips"><a href="javascript:;"><em class=" icon icon_gps"></em> 亲，请先选择您的收货城市
+            <em class=" icon icon_arrowright"></em></a></div></div> <div class="mask" style="display: none;"><div id="da" class="content time timing"><img class="icon" src="https://img02.yiguo.com/e/web/130101/app/gold/v4/level1_default@3x.png"> <div class="text"><div class="popup-box"><div class="top"><!----> <p class="txt1">您的等级为普通卡，不可享定时达服务</p></div> <div class="bottom"><p class="txt1">什么是定时达？</p> <p class="txt3">定时达是易果针对金卡及以上等级会员推出的专享特权服务，用户可以选择具体配送当日的具体时间段。</p> <p class="txt2"><i class="dian"></i>目前支持此服务的配送城市为：上海、杭州、宁波、苏州、南京、无锡（部分区域不支持）</p> <p class="txt2"><i class="dian"></i>可选配送时段：<br>[上午]9:00~12：00 [下午]12:00~18:00 <br> [晚上]18:00~21:00  [全天配送]9:00~21:00</p> <p class="txt2"><i class="dian"></i>此服务仅支持自配商品（不含限时配送商品）。</p> <p class="txt2"><i class="dian"></i>温馨提示:当订单中有易盒家宴商品时，如果收货地区支持定时达服务，普通会员、银卡会员用户也可以选择具体配送时段。</p></div></div></div> <div class="buttons"><button class="submit">知道了</button></div></div></div> <div class="mask" style="display: none;"><div class="content rule"><div class="text"><div class="title line line-bottom">U币使用规则说明</div> <ul><li>1.100U币抵1元；</li> <li>2.订单的实付金额&gt;=10元；</li> <li>3.U币抵扣不超过每笔订单应付金额的10%；</li> <li>4.U币抵扣金额每笔订单上限￥20；</li> <li>  5.U币每次抵扣金额为100的整数倍；</li> <li> 6.购买礼卡礼券和充值不能使用U币。</li></ul></div> <div class="buttons"><a class="submit">知道了</a></div></div></div></div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script src="js/vue.js"></script>
+		
+		<script type="text/javascript">
+			
+			(function($,win){
+				
+				mui.init();
+				mui.plusReady(function(){
+					
+				});
+				
+				
+				var app = new Vue({
+						el:"#app",
+						data: {
+							
+						},
+						methods:{
+							tologin(){
+								plus.webview.open('login.html',"login.html",{},"slide-in-right",100);
+							},
+							
+							toindex(){
+								var indexWindow = plus.webview.getLaunchWebview();
+								var value = "home.html";
+								indexWindow.evalJS("window.activeClass('" +value+ "')");
+								plus.webview.getWebviewById("home.html").show("fade-in",200);
+							}
+						}
+					});
+				
+			})(mui,window)
+			
+			
+		</script>
+	
+	</body>
+</html>

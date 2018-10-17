@@ -1,0 +1,301 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.css" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+		<style type="text/css">
+			.entry-login {
+  background: white;
+}
+
+.login {
+  padding-top: 7.125rem;
+}
+
+.login .login-tip {
+  padding: 0.9375rem 1.875rem 0 2rem;
+  color: #969696;
+  font-size: 0.75rem;
+}/* 2018-5-8 created By hujin */
+
+.verify-phone {
+  padding: 0 1.875rem 0 1.875rem;
+}
+
+.verify-phone .form-box {
+  width: 100%;
+  border: none;
+  border-bottom: 0.0625rem solid #e6e6e6;
+  padding: 0.3125rem 0;
+}
+
+.verify-phone .form-box .form-input {
+  font-size: 1rem;
+  color: #262626;
+  height: 2.125rem;
+  width: 48%;
+  border: none;
+  outline: none;
+}
+
+.verify-phone .form-box .form-btn-code {
+  float: right;
+  margin-top: 0.25rem;
+}
+
+.verify-phone .form-box .form-btn-code .form-btn {
+  font-size: 0.875rem;
+  width: 5.5rem;
+  color: #00B388;
+  padding: 0.3125rem 0.3125rem 0.25rem;
+  border: 0.0625rem solid #00B388;
+  border-radius: 0.3125rem;
+  background: #fff;
+}
+
+.verify-phone .form-box .form-btn-code .form-btn-disabled {
+  color: #B8B3BA;
+  border-color: #B8B3BA;
+  opacity: .8;
+}
+
+.verify-phone .form-box .form-clear {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABsAAAAbCAYAAACN1PRVAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTMyIDc5LjE1OTI4NCwgMjAxNi8wNC8xOS0xMzoxMzo0MCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUuNSAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QUM5RTAxMzU3OTdFMTFFNkI5NUU4RTQ1MzhCOERCQTUiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QUM5RTAxMzY3OTdFMTFFNkI5NUU4RTQ1MzhCOERCQTUiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBQzlFMDEzMzc5N0UxMUU2Qjk1RThFNDUzOEI4REJBNSIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBQzlFMDEzNDc5N0UxMUU2Qjk1RThFNDUzOEI4REJBNSIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PjKf2xIAAAI7SURBVHjatJY9TxtBEIbnTm6QLIKERCKbyBI2GAMSRX4AYDv8AMqQihZS8hEkUobPKgq0aRI6/oBlUJI+BVIwYJ9psBVokCGF6cg7lznJoF3fHjrGenSybm4e73pvd6yd7R3yiS4wBXLgFXgBnoEb8Af8AvtgD1y3KxTxkbwH70CH4n6nkAZvwGfwCayBhqqgrRFNAwcsaESq4LxFeW7aRGaBDfAVdNPjolueX5d6WtlHME/hxILUU8p43pco3FiSuvdkPWCbnia47vNW2QdZffdiYnyM+lN9RhUHB1L0Mh7TreoVT8ZfZlRZ9VqNsq8nfYWZ9ACN5/IUjUZ1KVy/KyIvrHJ5l52qe2UhUYEqzplSNJbN0o+DAzo+Lbd7LaZYlm/3q9sJDUVe5Fk26pelEnqin2YijlGW9ZpkukLrvzAeP6LBoWFXVDITcfRGZH8zinKlSrFYjDLDI3R89DuIyN1Lbdm9jZc3j+ikVKI0rqlkXxDZXx5ZDQyZiHh5e1NXr9coN4n/sFAgp3pmIjtn2aGf7KHIm1ILnwDCQ1sOvkAiL04rDn0vFl2hwZTu23LCNlV30/16UUAh19+z5VT9osy4bbovrN+q84SJREKXwvUblvQgvCufqDbjEIIHkwEX3q5/CWaf6IiZY9HDw3NXmpUwYxN807UFy2ArJNGWNEDaHuROepC34OqRkit5fl7q+bZyPPSkdFpNQ0lT8pOtU2fapDZkGlblgM23dMSdsqdeSEdcNOmI/wkwADLuycrIaw0dAAAAAElFTkSuQmCC) no-repeat;
+  color: transparent;
+  background-size: 100% 100%;
+  display: inline-block;
+  width: 1.25rem;
+  height: 1.25rem;
+  vertical-align: sub;
+}
+
+.verify-phone .form-box .form-clear-code {
+  float: right;
+  margin-top: 0.5rem;
+}
+
+.verify-phone .form-submit {
+  margin-top: 0.875rem;
+}
+
+.verify-phone .form-submit .form-submit-btn {
+  color: #fff;
+  border: none;
+  background: #00B388;
+  min-height: 2.5rem;
+  text-overflow: ellipsis;
+  font-size: 1rem;
+  line-height: 2.625rem;
+}
+
+.verify-phone .form-submit .form-submit-btn-disabled {
+  background: #B8B3BA;
+}
+
+.verify-phone .form-voice {
+  margin-top: 0.625rem;
+}
+
+.verify-phone .form-voice .voice-btn {
+  font-size: 0.875rem;
+  color: #00B388;
+  text-decoration: underline;
+}
+
+.verify-phone .form-protocol {
+  display: -webkit-box;
+  display: flex;
+  display: -webkit-flex;
+  -webkit-box-align: start;
+          align-items: flex-start;
+  -webkit-align-items: flex-start;
+  margin-top: 2.1875rem;
+}
+
+.verify-phone .form-protocol-checkbox {
+  position: relative;
+  top: 0.125rem;
+  flex-shrink: 0;
+  -webkit-flex-shrink: 0;
+  display: block;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 100%;
+  border: 0.0625rem solid #B8B3BA;
+}
+
+.verify-phone .form-protocol.checked .form-protocol-checkbox {
+  border-color: #00B388;
+  background-color: #00B388;
+}
+
+.verify-phone .form-protocol.checked .form-protocol-checkbox::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0.0625rem;
+  left: 0.25rem;
+  width: 0.1875rem;
+  height: 0.4375rem;
+  border-color: #FFF;
+  border-style: solid;
+  border-width: 0 0.0625rem 0.0625rem 0;
+  transform-origin: center center;
+  -webkit-transform-origin: center center;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.verify-phone .form-protocol-label {
+  padding-left: 0.25rem;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: #969696;
+}
+
+.verify-phone .form-protocol-link {
+  color: #00B388;
+}
+
+.verify-phone .protocol-content-wrap {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  background: #FFF;
+  padding: 0.75rem 0.625rem 1.5rem 0.625rem;
+}
+
+.verify-phone .protocol-content {
+  border: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+.weui-btn {
+	width: 100%;
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 14px;
+    padding-right: 14px;
+    box-sizing: border-box;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    line-height: 2.55555556;
+    border-radius: 5px;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    overflow: hidden;
+}
+
+		</style>
+	</head>
+	<body>
+		
+		<div id="app">
+			<div class="login">
+	<div class="verify-phone">
+		<div class="form-box"><input type="tel" maxlength="11" placeholder="请输入手机号" autofocus="autofocus" class="form-input">
+			<div class="form-btn-code"><i class="form-clear"></i> <button class="form-btn">语音验证码</button></div>
+		</div>
+		<div class="form-box"><input type="tel" maxlength="6" placeholder="输入验证码" class="form-input">
+			<!---->
+		</div>
+		<div class="form-protocol"><span class="form-protocol-checkbox"></span>
+			<div class="form-protocol-label"><i>我已认真阅读、理解并同意</i> <i class="form-protocol-link">《中农仓用户协议》</i> <i>及</i> <i class="form-protocol-link">《中农仓隐私策略》</i></div>
+		</div>
+		<div class="form-submit"><button disabled="disabled" class="weui-btn form-submit-btn form-submit-btn-disabled">登录</button></div>
+		<div>
+			<div class="vux-popup-dialog vux-popup-bottom vux-popup-dialog vux-popup-dialog-v8pel" style="height: 100%; display: none;">
+				<div class="header-bar-wrapper">
+					<div class="bar bar-header fixed">
+						<div class="buttons buttons-left"><button class="button back"></button></div>
+						<h1 class="title">中农仓用户协议</h1> </div>
+				</div>
+				<div class="protocol-content-wrap"><iframe width="100%" src="https://as-vip.missfresh.cn/frontend/active/publish/9832bc34-fefc-428f-861d-eac304bfe6e6/index.html?promotionId=0" class="protocol-content"></iframe></div>
+			</div>
+		</div>
+	</div>
+	<h2 class="login-tip">为方便您及时查询订单信息，需要验证您的手机号来登录</h2></div>
+		</div>
+		
+		<button id="send">传值给父窗口</button>
+		
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<script type="text/javascript">
+			var app = new Vue({
+				el:"#app",
+				data: {
+					active: 0,
+					height:0,
+					userName:"keke",
+					title:"hello",
+					cindex:0,
+					testarr:[1,2,3,4,5,6,7,8,9,10],
+					list:["热卖","水果","零食","酒饮","粮油","熟食","其他"],
+					itemList: [
+						{"title":"items1","img":"https://img14.yiguoimg.com/d/items/2018/181010/9288732375033162_1125x652.jpg?w=1125&h=652"},
+						{"title":"items2","img":"https://img09.yiguoimg.com/d/items/2018/180929/9288731981686077_1125x652.jpg?w=1125&h=652"},
+						{"title":"items3","img":"https://img13.yiguoimg.com/d/items/2018/180929/9288731988927805_1125x652.jpg?w=1125&h=652"}
+					]
+				},
+				methods:{
+					
+					login:function(){
+						
+					},
+					
+					addnum:function(){
+						console.log(1)
+					},
+					
+					miusnum:function(){
+						
+					},
+					
+					changecate:function(e){
+						this.cindex = e.target.getAttribute("cindex");
+					}
+				}
+			});
+			
+			//mui初始化
+			mui.init()
+			//手机app的加载初始化
+			mui.plusReady(function(){
+				
+				//获取当前窗口
+				var currentview = plus.webview.currentWebview();
+				
+				alert(currentview.username+"==="+currentview.age);
+				
+				
+				document.getElementById("send").addEventListener("tap",function(){
+					//获取父窗口
+					var parentWindow = currentview.opener();
+					//给父窗口传递数据
+					var address = "当前登录的用户名是：长沙"
+					//开始传递
+					parentWindow.evalJS("window.showaddress('" +address+ "')");
+					//传递完毕进行完毕
+					currentview.close();
+				});
+			});
+			
+			window.addEventListener("fire",function(e){
+      			alert("父页面传来的值"+e.detail.value);
+      		});
+			
+			
+		</script>
+	</body>
+
+</html>

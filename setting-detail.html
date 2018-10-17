@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css" />
+		<script type="text/javascript" src="js/flexable.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/main-c.css" />
+	</head>
+
+	<body style="background: #f4f4f4;">
+		<div id="app">
+			<div id="setting" class="setting">
+				<div class="list line-bottom">
+					<a href="tel:4000007788" class="listIn line-top"><span class="hot">客服热线</span> <span class="iphone">400-000-7788<i></i></span></a>
+					<!---->
+				</div>
+				<div class="list line-bottom">
+					<p class="listIn line-top" @click="touppwd"><span class="hot">修改登录密码</span> <span class="iphone"><i></i></span></p>
+					<p class="listIn line-top" @click="touppaypwd"><span class="hot">设置支付密码</span> <span class="iphone"><i></i></span></p>
+					<p class="listIn line-top phoneNum" @click="changephone"><span class="hot">更换手机号码</span> <span class="number">150****6437</span> <span class="iphone"><i></i></span></p>
+				</div>
+				<div class="list line-bottom padleft">
+					<p class="listIn line-top" @click="aabout1"><span class="hot">关于我们</span> <span class="iphone"><i></i></span></p>
+					<p class="listIn line-top" @click="babout2"><span class="hot">隐私条款</span> <span class="iphone"><i></i></span></p>
+					<p class="listIn line-top" @click="cabout3"><span class="hot">配送说明</span> <span class="iphone"><i></i></span></p>
+					<p class="listIn line-top" @click="dabout4"><span class="hot">退换货说明</span> <span class="iphone"><i></i></span></p>
+				</div>
+				<div class="btn">
+					<a href="javascript:;" @click="logout">退出登录</a>
+				</div>
+				<div class="maskHint" style="display: none;">
+					<div class="popup-hint">
+						<p class="hint-text">为了您的账号和资金安全，请您到易果APP上绑定或更换手机</p>
+						<div class="btnpop1 clear">
+							<a href="javascript:;" class="btnone">知道了</a>
+							<a href="javascript:;" class="btntwo">下载APP</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/vue.js"></script>
+		<script type="text/javascript">
+			//mui初始化
+			mui.init()
+			//手机app的加载初始化
+			mui.plusReady(function() {
+				var app = new Vue({
+					el: "#app",
+					data: {
+	
+					},
+					methods: {
+						touppwd(){
+							plus.webview.open("updatepwd.html","updatepwd.html",{},"slide-in-right",100);
+						},
+						touppaypwd(){
+							plus.webview.open("paypassword.html","paypassword.html",{},"slide-in-right",100);
+						},
+						changephone(){
+							plus.webview.open("updatepwd.html","updatepwd.html",{},"slide-in-right",100);
+						},
+						aabout1(){
+							plus.webview.open("about.html","about.html",{},"slide-in-right",100);
+						},
+						babout2(){
+							plus.webview.open("yinshi.html","yinshi.html",{},"slide-in-right",100);
+						},
+						cabout3(){
+							plus.webview.open("ReturnPolicy.html","ReturnPolicy.html",{},"slide-in-right",100);
+						},
+						dabout4(){
+							plus.webview.open("shuoming.html","shuoming.html",{},"slide-in-right",100);
+						},
+						logout(){
+							var parentWindow = plus.webview.currentWebview().opener();
+							parentWindow.evalJS("window.logout('ok')");
+							plus.webview.currentWebview().hide();
+						}
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

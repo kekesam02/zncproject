@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css"/>
+		<script type="text/javascript" src="js/flexable.js" ></script>
+		<link rel="stylesheet" type="text/css" href="css/main-c.css"/>
+	</head>
+	<body>
+		<div id="app">
+			<div id="addressList" class="addressManage"><section class="myAddress"><div class="myAddressList"><ul><li class=""><!----> <div class="item personal"><div class="right"><div class="personalIngo">徐成飞  15074816437</div> <div class="addressInfoD"><!----> <i class="type">公司</i> <!---->
+                                上海宝山区给你好哦有来中路</div></div></div> <div class="info"><div class="default"><i class="icon1 active"></i> <!----> <span>默认地址</span></div> <div class="right"><span class="edit line-all">编辑</span> <span class="edit line-all">删除</span></div></div></li></ul></div></section> <!----> <footer><a href="javascript:;"><i class="addIcon"></i>增加收货地址</a></footer> <div class="maskHint" style="display: none;"><div class="popup-hint"><p class="hint-text">地址删除后将无法恢复，确认删除？</p> <div class="btnpop1 clear"><a href="javascript:;" class="btnone">取消</a> <a href="javascript:;" class="btntwo">确认</a></div></div></div> <div class="citymask" style="display: none;"><div class="gpstips"><a href="javascript:;"><em class=" icon icon_gps"></em> 亲，请先选择您的收货城市
+            <em class=" icon icon_arrowright"></em></a></div></div></div>
+		</div>
+		
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript" src="js/vue.js" ></script>
+		<script type="text/javascript">
+			var app = new Vue({
+				el:"#app",
+				data: {
+					active: 0,
+					height:0,
+					userName:"keke",
+					title:"hello",
+					cindex:0,
+					testarr:[1,2,3,4,5,6,7,8,9,10],
+					list:["热卖","水果","零食","酒饮","粮油","熟食","其他"],
+					itemList: [
+						{"title":"items1","img":"https://img14.yiguoimg.com/d/items/2018/181010/9288732375033162_1125x652.jpg?w=1125&h=652"},
+						{"title":"items2","img":"https://img09.yiguoimg.com/d/items/2018/180929/9288731981686077_1125x652.jpg?w=1125&h=652"},
+						{"title":"items3","img":"https://img13.yiguoimg.com/d/items/2018/180929/9288731988927805_1125x652.jpg?w=1125&h=652"}
+					]
+				},
+				methods:{
+					
+					login:function(){
+						
+					},
+					
+					addnum:function(){
+						console.log(1)
+					},
+					
+					miusnum:function(){
+						
+					},
+					
+					changecate:function(e){
+						this.cindex = e.target.getAttribute("cindex");
+					}
+				}
+			});
+			
+			//mui初始化
+			mui.init()
+			//手机app的加载初始化
+			mui.plusReady(function(){
+				
+			});
+		</script>
+	</body>
+
+</html>
